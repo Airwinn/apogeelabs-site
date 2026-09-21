@@ -42,13 +42,13 @@ breaks. Never add a mockup, a render, or an invented app screen.
 
 ## Before the domain goes live
 
-The site is fully relative, so it works on any host as-is. Two things want the
-real domain once it's bought (likely `apogeelabs.link`):
+The site is fully relative, so it works on any host as-is. The domain
+(`https://apogeelabs.link`) isn't bought yet and lives in exactly one place:
+**`BASE_URL` in `build-qr.py`**. Change it there, re-run the script, and:
 
-1. **`og:image` / `og:url`** in each page's `<head>` — social scrapers want
-   absolute URLs. Search the pages for `og:image` and prefix with the domain.
-2. **`BASE_URL` in `build-qr.py`** — the QR codes currently encode the
-   placeholder domain.
+1. Prefix each page's **`og:image`** with the same value — social scrapers want
+   absolute URLs, and this is the only copy of it outside `build-qr.py`.
+2. Commit the regenerated `qr/*.svg`; until then they encode the placeholder.
 
 ## Custom domain
 
