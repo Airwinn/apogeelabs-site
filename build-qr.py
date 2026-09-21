@@ -11,7 +11,7 @@ and qr/print/<app>.png at 1024px (print-ready).
 import segno
 
 # ponytail: single knob — the whole point of this script is this one line.
-BASE_URL = "https://apogeelabs.link"  # PLACEHOLDER — domain not bought yet; set it before printing/publishing
+BASE_URL = "https://apogeelabs.org"
 
 APPS = {
     "marge": f"{BASE_URL}/marge/",
@@ -27,4 +27,4 @@ for name, url in APPS.items():
     qr.save(f"qr/print/{name}.png", scale=print_scale, dark="#1d1d1f", light="#ffffff")
     print(f"{name}: {url}")
 
-print("\nDone. QR codes still point at the placeholder domain until BASE_URL is updated.")
+print(f"\nDone. QR codes encode {BASE_URL}.")
