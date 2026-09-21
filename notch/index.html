@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notch — Roommate Chores &amp; Bills</title>
+<meta name="description" content="The app that keeps score on your roommates. Chores, bills, and who actually owes who.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Notch — Roommate Chores &amp; Bills">
+<meta property="og:description" content="Your roommates, on a leaderboard. Chores, bills, receipts.">
+<meta property="og:image" content="../assets/img/apps/notch-touch-180.png">
+<meta name="theme-color" content="#0b0d14" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f3ea" media="(prefers-color-scheme: light)">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/apps/notch-touch-180.png">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<main class="linkpage">
+  <div class="wrap">
+    <div class="link-card">
+      <a class="back" href="../">&larr; Apogee Labs</a>
+      <img class="icon-lg" src="../assets/img/apps/notch-touch-180.png" alt="Notch app icon" width="74" height="74">
+      <p class="kicker" id="kicker">Roommate chores &amp; bills</p>
+      <h1 id="heading">Get Notch</h1>
+      <p class="tag" id="tag">The app that keeps score on your roommates.<br>Chores, bills, and who actually owes who.</p>
+
+      <!-- Shown only when arriving from an invite link (?join=CODE). -->
+      <div id="invite" hidden>
+        <p class="invite-label">Your flat's invite code</p>
+        <p class="invite-code" id="invite-code"></p>
+        <p class="invite-hint">Install the app, then enter this code to join.</p>
+      </div>
+
+      <div class="stack">
+        <a class="btn primary block" id="primary" href="#">Get Notch</a>
+        <a class="btn ghost block" id="secondary" href="#">Other platform</a>
+      </div>
+
+      <div class="qr-block">
+        <div class="qr-frame">
+          <img src="../qr/notch.svg" alt="QR code linking to this page" width="100%" height="100%">
+        </div>
+        <span>Scan to open on your phone</span>
+      </div>
+
+      <p class="fine">
+        Free on iOS &amp; Android ·
+        <a href="https://airwinn.github.io/notch-privacy/">Privacy</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<script>
+(function () {
+  var IOS  = "https://apps.apple.com/app/id6773518599";
+  var PLAY = "https://play.google.com/store/apps/details?id=com.notch.app";
+
+  var ua = navigator.userAgent || "";
+  var isIOS = /iPad|iPhone|iPod/.test(ua) ||
+              (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/.test(ua);
+
+  // Invite arrivals (?join=CODE) are the highest-intent visitors this page gets:
+  // a real person was personally asked to join a flat. Surface the code up front
+  // so it survives the trip through the app store.
+  var code = new URLSearchParams(location.search).get("join");
+  if (code && /^[A-Za-z0-9-]{4,12}$/.test(code)) {
+    code = code.toUpperCase();
+    document.getElementById("invite-code").textContent = code;
+    document.getElementById("invite").hidden = false;
+    document.getElementById("tag").textContent =
+      "You've been invited to a flat on Notch.";
+    document.getElementById("kicker").textContent = "You're invited";
+    try { localStorage.setItem("notch.invite", code); } catch (e) {}
+  }
+
+  var primary = document.getElementById("primary");
+  var secondary = document.getElementById("secondary");
+
+  function set(el, href, label) { el.href = href; el.textContent = label; }
+
+  if (isIOS) {
+    set(primary, IOS, "Download on the App Store");
+    set(secondary, PLAY, "Get it on Google Play");
+  } else if (isAndroid) {
+    set(primary, PLAY, "Get it on Google Play");
+    set(secondary, IOS, "Download on the App Store");
+  } else {
+    // Desktop: show both, no auto-redirect.
+    set(primary, IOS, "Download on the App Store");
+    set(secondary, PLAY, "Get it on Google Play");
+  }
+})();
+</script>
+</body>
+</html>

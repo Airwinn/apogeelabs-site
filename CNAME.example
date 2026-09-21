@@ -1,0 +1,9 @@
+apogeelabs.app
+
+# To publish with a custom domain on GitHub Pages:
+# 1. Rename this file to `CNAME` (no extension) once the domain above is
+#    the real one you bought (see README.md for the domain report).
+# 2. Commit it — GitHub Pages reads this file to know which domain to serve.
+# 3. Set the DNS records in README.md at your registrar.
+# 4. In the repo Settings -> Pages, GitHub will detect the CNAME and offer
+#    "Enforce HTTPS" once the cert is issued (can take up to ~24h).

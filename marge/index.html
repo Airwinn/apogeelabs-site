@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marge — Reseller Profit Tracker</title>
+<meta name="description" content="Marge tracks your real profit after every fee — Vinted, eBay, Depop, Poshmark. Start your 7-day free trial.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Marge — Reseller Profit Tracker">
+<meta property="og:description" content="Your real profit after every fee. Log a flip in seconds, see what actually landed.">
+<meta property="og:image" content="../assets/img/apps/marge-touch-180.png">
+<meta name="theme-color" content="#0b0d14" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f3ea" media="(prefers-color-scheme: light)">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/apps/marge-touch-180.png">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<main class="linkpage">
+  <div class="wrap">
+    <div class="link-card">
+      <a class="back" href="../">&larr; Apogee Labs</a>
+      <img class="icon-lg" src="../assets/img/apps/marge-touch-180.png" alt="Marge app icon" width="74" height="74">
+      <p class="kicker">Reseller profit tracker</p>
+      <h1>Get Marge</h1>
+      <p class="tag">Your real profit after every fee.<br>Vinted, eBay, Depop, Poshmark.</p>
+
+      <div class="stack">
+        <a class="btn primary block" id="primary" href="https://apps.apple.com/app/id6776045609">Download on the App Store</a>
+        <a class="btn ghost block" id="secondary" href="https://play.google.com/store/apps/details?id=com.flipfolio.flipfolio">Get it on Google Play</a>
+      </div>
+
+      <div class="qr-block">
+        <div class="qr-frame">
+          <img src="../qr/marge.svg" alt="QR code linking to this page" width="100%" height="100%">
+        </div>
+        <span>Scan to open on your phone</span>
+      </div>
+
+      <p class="fine">
+        7-day free trial, then Pro or Expert &middot; iOS &amp; Android ·
+        <a href="https://airwinn.github.io/marge-legal/privacy-policy.html">Privacy</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<script>
+(function () {
+  var IOS  = "https://apps.apple.com/app/id6776045609";
+  var PLAY = "https://play.google.com/store/apps/details?id=com.flipfolio.flipfolio";
+
+  // Pass utm_source/utm_medium through to the Play Store's install referrer,
+  // the one param Play actually reads back after install.
+  var params = new URLSearchParams(location.search);
+  var utmSource = params.get("utm_source");
+  var utmMedium = params.get("utm_medium");
+  if (utmSource || utmMedium) {
+    var ref = [];
+    if (utmSource) ref.push("utm_source=" + utmSource);
+    if (utmMedium) ref.push("utm_medium=" + utmMedium);
+    PLAY += "&referrer=" + encodeURIComponent(ref.join("&"));
+  }
+
+  var ua = navigator.userAgent || "";
+  var isIOS = /iPad|iPhone|iPod/.test(ua) ||
+              (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/.test(ua);
+
+  var primary = document.getElementById("primary");
+  var secondary = document.getElementById("secondary");
+
+  function set(el, href, label) { el.href = href; el.textContent = label; }
+
+  if (isIOS) {
+    set(primary, IOS, "Download on the App Store");
+    set(secondary, PLAY, "Get it on Google Play");
+  } else if (isAndroid) {
+    set(primary, PLAY, "Get it on Google Play");
+    set(secondary, IOS, "Download on the App Store");
+  } else {
+    // Desktop: show both, no auto-redirect.
+    set(primary, IOS, "Download on the App Store");
+    set(secondary, PLAY, "Get it on Google Play");
+  }
+})();
+</script>
+</body>
+</html>
