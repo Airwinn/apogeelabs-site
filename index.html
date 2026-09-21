@@ -2,126 +2,247 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Apogee Labs — small, focused apps</title>
-<meta name="description" content="Apogee Labs is an indie app studio building calm, useful software: Marge (reseller profit tracking), Notch (roommate chores &amp; bills), and Kept (a home for your collection).">
-<meta name="theme-color" content="#0b0d14" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f7f3ea" media="(prefers-color-scheme: light)">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Apogee Labs — apps that do one thing, exactly</title>
+<meta name="description" content="A small independent studio. Marge tracks your real profit after every fee, Notch settles chores and bills with your flatmates, and Kept is a calm home for what you collect.">
+<meta name="theme-color" content="#1d1d1f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
 
-<!-- Open Graph: og:image and og:url want absolute URLs. Fill these in once the
-     domain is live (see README) — left relative/omitted for now. -->
+<!-- og:image / og:url want absolute URLs. Set them the moment the domain is
+     live — see README. Relative works with most scrapers in the meantime. -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Apogee Labs — small, focused apps">
-<meta property="og:description" content="Marge, Notch, and Kept — three calm, focused apps from a two-person studio.">
-<meta property="og:image" content="assets/img/apple-touch-icon.png">
-<meta name="twitter:card" content="summary">
+<meta property="og:site_name" content="Apogee Labs">
+<meta property="og:title" content="Apogee Labs — apps that do one thing, exactly">
+<meta property="og:description" content="Marge, Notch and Kept. Three focused apps from a small independent studio.">
+<meta property="og:image" content="assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Apogee Labs — apps that do one thing, exactly">
+<meta name="twitter:description" content="Marge, Notch and Kept. Three focused apps from a small independent studio.">
+<meta name="twitter:image" content="assets/img/og.png">
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<div class="orbit-field" aria-hidden="true">
-  <svg class="o1" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-    <ellipse class="orbit-ring" cx="300" cy="320" rx="260" ry="150" transform="rotate(-16 300 320)"/>
-    <ellipse class="orbit-ring" cx="300" cy="320" rx="180" ry="104" transform="rotate(-16 300 320)"/>
-    <circle class="orbit-dot" cx="510" cy="185" r="7"/>
-  </svg>
-  <svg class="o2" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-    <ellipse class="orbit-ring" cx="250" cy="250" rx="210" ry="130" transform="rotate(12 250 250)"/>
-  </svg>
-</div>
-
-<div class="wrap">
-  <header class="site">
-    <a class="brand" href="#main" onclick="return false" aria-hidden="false">
-      <img class="mark" src="assets/img/favicon.svg" alt="" width="22" height="22">
-      <span class="word">APOGEE <b>LABS</b></span>
+<nav class="nav" aria-label="Primary">
+  <div class="nav__in">
+    <a class="brand" href="./">
+      <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <ellipse cx="32" cy="34" rx="22" ry="12.5" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="3.4" transform="rotate(-20 32 34)"/>
+        <circle cx="32" cy="34" r="6" fill="currentColor" fill-opacity=".28"/>
+        <circle cx="47" cy="16" r="6" fill="currentColor"/>
+      </svg>
+      <span>Apogee Labs</span>
     </a>
-  </header>
+    <a href="#marge">Marge</a>
+    <a href="#notch">Notch</a>
+    <a href="#kept">Kept</a>
+  </div>
+</nav>
 
-  <main id="main">
-    <section class="hero">
-      <p class="eyebrow">Indie app studio</p>
-      <h1>Small apps, built to <em>actually</em> pull their weight.</h1>
-      <p class="lede">Apogee Labs (formerly Airwinn) is a two-person studio. We ship focused tools that mind your money, your flat, and the things you keep — no bloat, no dark patterns.</p>
-    </section>
+<main id="main">
 
-    <section class="apps" aria-label="Our apps">
-      <article class="app-card">
-        <div class="top">
-          <img class="icon" src="assets/img/apps/marge-icon-192.png" alt="Marge app icon" width="50" height="50">
-          <div>
-            <h2>Marge</h2>
-            <span class="status">Reseller profit tracker</span>
+  <!-- ============================================================ hero -- -->
+  <section class="band hero">
+    <div class="orbit" aria-hidden="true">
+      <svg viewBox="0 0 1000 1000" fill="none">
+        <defs>
+          <radialGradient id="g" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="currentColor" stop-opacity=".30"/>
+            <stop offset="60%" stop-color="currentColor" stop-opacity=".05"/>
+            <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle class="glow" cx="500" cy="500" r="330" fill="url(#g)"/>
+        <g class="ring" opacity=".26">
+          <ellipse cx="500" cy="500" rx="430" ry="188" stroke="currentColor" stroke-width="1.1" transform="rotate(-18 500 500)"/>
+        </g>
+        <g class="ring ring--b" opacity=".2">
+          <ellipse cx="500" cy="500" rx="330" ry="330" stroke="currentColor" stroke-width="1.1"/>
+        </g>
+        <g class="ring ring--c" opacity=".16">
+          <ellipse cx="500" cy="500" rx="222" ry="392" stroke="currentColor" stroke-width="1.1" transform="rotate(26 500 500)"/>
+        </g>
+        <g class="body">
+          <circle cx="930" cy="500" r="5.5" fill="currentColor" opacity=".9" transform="rotate(-18 500 500)"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="inner">
+      <p class="eyebrow reveal">Apogee Labs</p>
+      <h1 class="display reveal" style="--d:1">Apps that do one thing. Exactly.</h1>
+      <p class="sub reveal" style="--d:2">A small independent studio. Three apps, each built to be the best possible answer to a single question.</p>
+      <div class="links reveal" style="--d:3">
+        <a class="tlink" href="#marge">Meet the apps</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== Marge -- -->
+  <section class="band band--dark pin" id="marge" style="--accent:#1d8f66" aria-labelledby="marge-h">
+    <div class="pin__track">
+      <div class="pin__stage">
+        <div class="inner">
+          <div class="pin__grid grid12">
+            <div class="pin__copy">
+              <p class="eyebrow">Marge</p>
+              <h2 class="headline" id="marge-h">Your real profit after every&nbsp;fee.</h2>
+              <div class="notes">
+                <div class="slot slot--out" style="--from:-.09; --to:.54">
+                  <p class="note">A £48 sale is never £48. The platform's cut, the postage, and what you paid for it all come off the top.</p>
+                </div>
+                <div class="slot" style="--from:.58">
+                  <p class="note">Marge does that arithmetic the second you log the sale. <b>Vinted, eBay, Depop, Poshmark.</b></p>
+                </div>
+              </div>
+              <div class="links">
+                <a class="tlink" href="marge/#detail" aria-label="Learn more about Marge">Learn more</a>
+                <a class="tlink" href="marge/" aria-label="Get the app — Marge">Get the app</a>
+              </div>
+              <div class="pin__rail" aria-hidden="true">
+                <i style="--from:0; --span:.5"></i>
+                <i style="--from:.5; --span:.45"></i>
+              </div>
+            </div>
+
+            <div class="pin__visual" aria-hidden="true">
+              <div class="slot slot--out" style="--from:-.09; --to:.54">
+                <div class="fees">
+                  <p class="fees__gross">£48.00</p>
+                  <p class="fees__cap">Vintage Levi's 501 — sold</p>
+                  <p class="fees__row" style="--at:.10"><span>Platform fee</span><b>−£4.32</b></p>
+                  <p class="fees__row" style="--at:.20"><span>Postage</span><b>−£3.20</b></p>
+                  <p class="fees__row" style="--at:.30"><span>What you paid</span><b>−£21.00</b></p>
+                </div>
+              </div>
+              <div class="slot" style="--from:.58">
+                <div class="fees">
+                  <p class="net__from">from £48.00</p>
+                  <p class="net">
+                    <span class="net__num">£<span data-count="19.48" data-count-from="0" data-count-at=".62" data-count-span=".22">19.48</span></span>
+                  </p>
+                  <p class="net__lab">yours, after everything</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <p class="pitch">Your real profit after every fee. Vinted, eBay, Depop, Poshmark — logged in seconds.</p>
-        <div class="badges">
-          <span class="badge">iOS</span>
-          <span class="badge">Android</span>
-          <span class="badge">7-day free trial</span>
-        </div>
-        <div class="card-foot">
-          <a class="btn primary block" href="marge/">Get the app</a>
-          <a class="qr-chip" href="marge/" aria-label="Scan to open Marge's smart link">
-            <img src="qr/marge.svg" alt="QR code linking to the Marge smart link page" width="54" height="54">
-          </a>
-        </div>
-      </article>
+      </div>
+    </div>
+  </section>
 
-      <article class="app-card">
-        <div class="top">
-          <img class="icon" src="assets/img/apps/notch-icon-192.png" alt="Notch app icon" width="50" height="50">
-          <div>
-            <h2>Notch</h2>
-            <span class="status">Roommate chores &amp; bills</span>
+  <!-- =========================================================== Notch -- -->
+  <section class="band pin" id="notch" style="--accent:#ff4d4d" aria-labelledby="notch-h">
+    <div class="pin__track">
+      <div class="pin__stage">
+        <div class="inner">
+          <div class="pin__grid grid12">
+            <div class="pin__copy">
+              <p class="eyebrow">Notch</p>
+              <h2 class="headline" id="notch-h">Who actually did the dishes.</h2>
+              <div class="notes">
+                <div class="slot slot--out" style="--from:-.09; --to:.50">
+                  <p class="note">Chores and shared bills for a flat that never quite agrees on either. Every job is worth points; the board keeps the score.</p>
+                </div>
+                <div class="slot" style="--from:.54">
+                  <p class="note">Weekly seasons, a running tally of who owes who, and a settle-up that ends the argument. <b>Free to download.</b></p>
+                </div>
+              </div>
+              <div class="links">
+                <a class="tlink" href="notch/#detail" aria-label="Learn more about Notch">Learn more</a>
+                <a class="tlink" href="notch/" aria-label="Get the app — Notch">Get the app</a>
+              </div>
+              <div class="pin__rail" aria-hidden="true">
+                <i style="--from:0; --span:.46"></i>
+                <i style="--from:.46; --span:.45"></i>
+              </div>
+            </div>
+
+            <div class="pin__visual" aria-hidden="true">
+              <div class="slot slot--out" style="--from:-.09; --to:.50">
+                <div class="board">
+                  <div class="bar"><span class="bar__who">P</span><span class="bar__track"><span class="bar__fill" style="--v0:.24; --v1:.94; --v:.94"></span></span><span class="bar__pts">140</span></div>
+                  <div class="bar"><span class="bar__who">M</span><span class="bar__track"><span class="bar__fill" style="--v0:.20; --v1:.80; --v:.80"></span></span><span class="bar__pts">120</span></div>
+                  <div class="bar"><span class="bar__who">A</span><span class="bar__track"><span class="bar__fill" style="--v0:.14; --v1:.54; --v:.54"></span></span><span class="bar__pts">80</span></div>
+                  <div class="bar"><span class="bar__who">J</span><span class="bar__track"><span class="bar__fill" style="--v0:.04; --v1:.14; --v:.14"></span></span><span class="bar__pts">20</span></div>
+                </div>
+              </div>
+              <div class="slot" style="--from:.54">
+                <!-- Optional real-capture slot. Absent file → nothing renders. -->
+                <figure class="shot">
+                  <img src="assets/img/real/notch-board.webp" width="900" height="1620"
+                       alt="" loading="lazy" decoding="async"
+                       onerror="this.closest('.shot').hidden=true">
+                </figure>
+              </div>
+            </div>
           </div>
         </div>
-        <p class="pitch">Chores, bills, and who actually owes who — your flat, on a leaderboard.</p>
-        <div class="badges">
-          <span class="badge">iOS</span>
-          <span class="badge">Android</span>
-          <span class="badge">Free</span>
-        </div>
-        <div class="card-foot">
-          <a class="btn primary block" href="notch/">Get the app</a>
-          <a class="qr-chip" href="notch/" aria-label="Scan to open Notch's smart link">
-            <img src="qr/notch.svg" alt="QR code linking to the Notch smart link page" width="54" height="54">
-          </a>
-        </div>
-      </article>
+      </div>
+    </div>
+  </section>
 
-      <article class="app-card">
-        <div class="top">
-          <img class="icon" src="assets/img/apps/kept-icon-192.png" alt="Kept app icon" width="50" height="50">
-          <div>
-            <h2>Kept</h2>
-            <span class="status">Calm collection tracking</span>
+  <!-- ============================================================ Kept -- -->
+  <section class="band band--dark pin" id="kept" style="--accent:#e2613a" aria-labelledby="kept-h">
+    <div class="pin__track">
+      <div class="pin__stage">
+        <div class="inner">
+          <div class="pin__grid grid12">
+            <div class="pin__copy">
+              <p class="eyebrow">Kept</p>
+              <h2 class="headline" id="kept-h">A calm shelf for the things you keep.</h2>
+              <div class="notes">
+                <div class="slot slot--out" style="--from:-.09; --to:.50">
+                  <p class="note">Vinyl, games, films, books. One quiet place for what you own — and what you're still missing.</p>
+                </div>
+                <div class="slot" style="--from:.54">
+                  <p class="note">No feed, no streaks, no one to impress. <b>Coming soon on iOS.</b></p>
+                </div>
+              </div>
+              <div class="links">
+                <a class="tlink" href="kept/" aria-label="Learn more about Kept">Learn more</a>
+              </div>
+              <div class="pin__rail" aria-hidden="true">
+                <i style="--from:0; --span:.46"></i>
+                <i style="--from:.46; --span:.45"></i>
+              </div>
+            </div>
+
+            <div class="pin__visual" aria-hidden="true">
+              <div class="shelf">
+                <span class="spine" style="--i:0; --c:#f3e7d2; --h:64%; --lift:6"></span>
+                <span class="spine" style="--i:1; --c:#26221e; --h:78%; --lift:12"></span>
+                <span class="spine" style="--i:2; --c:#e2613a; --h:70%; --lift:9"></span>
+                <span class="spine" style="--i:3; --c:#cbb7a0; --h:58%; --lift:4"></span>
+                <span class="spine" style="--i:4; --c:#1a1a1a; --h:82%; --lift:14"></span>
+                <span class="spine" style="--i:5; --c:#e8d7bd; --h:66%; --lift:7"></span>
+                <span class="spine" style="--i:6; --c:#b8563a; --h:74%; --lift:10"></span>
+                <span class="spine" style="--i:7; --c:#fdf6ea; --h:60%; --lift:5"></span>
+              </div>
+            </div>
           </div>
         </div>
-        <p class="pitch">A quiet home for your vinyl, games, and books — what you have, what it's worth.</p>
-        <div class="badges">
-          <span class="badge">iOS</span>
-          <span class="badge">Coming soon</span>
-        </div>
-        <div class="card-foot">
-          <a class="btn ghost block" href="kept/">Coming soon</a>
-          <a class="qr-chip" href="kept/" aria-label="Scan to open the Kept coming-soon page">
-            <img src="qr/kept.svg" alt="QR code linking to the Kept coming-soon page" width="54" height="54">
-          </a>
-        </div>
-      </article>
-    </section>
-  </main>
+      </div>
+    </div>
+  </section>
+</main>
 
-  <footer class="site">
+<footer class="band foot">
+  <div class="inner foot__in">
     <span>&copy; 2026 Apogee Labs. Formerly Airwinn.</span>
-    <span class="also">Also from us: Ribh &rarr; <a href="https://ribh.ma">ribh.ma</a></span>
-  </footer>
-</div>
+    <span class="foot__also">Also from us: Ribh &rarr; <a href="https://ribh.ma">ribh.ma</a></span>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
 </body>
 </html>

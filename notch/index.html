@@ -2,52 +2,86 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Notch — Roommate Chores &amp; Bills</title>
-<meta name="description" content="The app that keeps score on your roommates. Chores, bills, and who actually owes who.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Notch — chores and shared bills for your flat</title>
+<meta name="description" content="Notch keeps score on the flat: chores worth points, shared bills, and a settle-up that ends the argument. Free to download on iOS and Android.">
+<meta name="theme-color" content="#1d1d1f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Notch — Roommate Chores &amp; Bills">
-<meta property="og:description" content="Your roommates, on a leaderboard. Chores, bills, receipts.">
-<meta property="og:image" content="../assets/img/apps/notch-touch-180.png">
-<meta name="theme-color" content="#0b0d14" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f7f3ea" media="(prefers-color-scheme: light)">
+<meta property="og:site_name" content="Apogee Labs">
+<meta property="og:title" content="Notch — chores and shared bills for your flat">
+<meta property="og:description" content="Who actually did the dishes. Chores, shared bills, and who owes who.">
+<meta property="og:image" content="../assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="../assets/img/og.png">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../assets/img/apps/notch-touch-180.png">
 <link rel="stylesheet" href="../assets/css/style.css">
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
-<main class="linkpage">
-  <div class="wrap">
-    <div class="link-card">
-      <a class="back" href="../">&larr; Apogee Labs</a>
-      <img class="icon-lg" src="../assets/img/apps/notch-touch-180.png" alt="Notch app icon" width="74" height="74">
-      <p class="kicker" id="kicker">Roommate chores &amp; bills</p>
-      <h1 id="heading">Get Notch</h1>
-      <p class="tag" id="tag">The app that keeps score on your roommates.<br>Chores, bills, and who actually owes who.</p>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav__in">
+    <a class="brand" href="../">
+      <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <ellipse cx="32" cy="34" rx="22" ry="12.5" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="3.4" transform="rotate(-20 32 34)"/>
+        <circle cx="32" cy="34" r="6" fill="currentColor" fill-opacity=".28"/>
+        <circle cx="47" cy="16" r="6" fill="currentColor"/>
+      </svg>
+      <span>Apogee Labs</span>
+    </a>
+    <a href="../#marge">Marge</a>
+    <a href="../#kept">Kept</a>
+  </div>
+</nav>
+
+<main class="band page" id="main" style="--accent:#ff4d4d">
+  <div class="inner">
+    <div class="card">
+      <img class="card__icon" src="../assets/img/apps/notch-touch-180.png" alt="" width="88" height="88" fetchpriority="high">
+      <p class="eyebrow" id="kicker">Notch</p>
+      <h1 id="heading">Who actually did the dishes.</h1>
+      <p class="sub" id="tag">Chores worth points, shared bills, and a weekly settle-up that ends the argument.</p>
 
       <!-- Shown only when arriving from an invite link (?join=CODE). -->
-      <div id="invite" hidden>
-        <p class="invite-label">Your flat's invite code</p>
-        <p class="invite-code" id="invite-code"></p>
-        <p class="invite-hint">Install the app, then enter this code to join.</p>
+      <div class="invite" id="invite" hidden>
+        <p class="invite__lab">Your flat's invite code</p>
+        <p class="invite__code" id="invite-code"></p>
+        <p class="invite__hint">Install the app, then enter this code to join.</p>
       </div>
 
       <div class="stack">
-        <a class="btn primary block" id="primary" href="#">Get Notch</a>
-        <a class="btn ghost block" id="secondary" href="#">Other platform</a>
+        <a class="btn btn--block" id="primary" href="https://apps.apple.com/app/id6773518599">Download on the App Store</a>
+        <a class="btn btn--ghost btn--block" id="secondary" href="https://play.google.com/store/apps/details?id=com.notch.app">Get it on Google Play</a>
       </div>
 
-      <div class="qr-block">
-        <div class="qr-frame">
-          <img src="../qr/notch.svg" alt="QR code linking to this page" width="100%" height="100%">
+      <div class="qr">
+        <div class="qr__frame">
+          <img src="../qr/notch.svg" alt="QR code linking to this page" width="108" height="108" loading="lazy">
         </div>
         <span>Scan to open on your phone</span>
       </div>
 
+      <section class="detail" id="detail">
+        <h2>What it does</h2>
+        <ul>
+          <li>Chores worth points, claimed by whoever does them.</li>
+          <li>A weekly season, and a board that keeps the score.</li>
+          <li>Shared bills split, with a running tally of who owes who.</li>
+          <li>Settle up at the end of the week and start clean.</li>
+          <li>Invite the flat with one code.</li>
+        </ul>
+      </section>
+
       <p class="fine">
-        Free on iOS &amp; Android ·
+        Free to download &middot; iOS &amp; Android &middot;
         <a href="https://airwinn.github.io/notch-privacy/">Privacy</a>
       </p>
+      <p class="fine"><a class="back" href="../">&larr; Apogee Labs</a></p>
     </div>
   </div>
 </main>
@@ -70,9 +104,10 @@
     code = code.toUpperCase();
     document.getElementById("invite-code").textContent = code;
     document.getElementById("invite").hidden = false;
-    document.getElementById("tag").textContent =
-      "You've been invited to a flat on Notch.";
     document.getElementById("kicker").textContent = "You're invited";
+    document.getElementById("heading").textContent = "Join your flat on Notch.";
+    document.getElementById("tag").textContent =
+      "Someone in your flat asked you to join. Install Notch, then enter the code below.";
     try { localStorage.setItem("notch.invite", code); } catch (e) {}
   }
 
@@ -81,18 +116,17 @@
 
   function set(el, href, label) { el.href = href; el.textContent = label; }
 
-  if (isIOS) {
-    set(primary, IOS, "Download on the App Store");
-    set(secondary, PLAY, "Get it on Google Play");
-  } else if (isAndroid) {
+  if (isAndroid) {
     set(primary, PLAY, "Get it on Google Play");
     set(secondary, IOS, "Download on the App Store");
   } else {
-    // Desktop: show both, no auto-redirect.
+    // iOS and desktop both lead with the App Store; desktop keeps both plus
+    // the QR code, and nothing ever auto-redirects.
     set(primary, IOS, "Download on the App Store");
     set(secondary, PLAY, "Get it on Google Play");
   }
 })();
 </script>
+<script src="../assets/js/site.js" defer></script>
 </body>
 </html>

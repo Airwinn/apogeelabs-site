@@ -2,47 +2,78 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kept — Coming Soon</title>
-<meta name="description" content="Kept is a calm collection app for vinyl, games, and books. Coming soon to iOS.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kept — a calm shelf for what you collect</title>
+<meta name="description" content="Kept is a quiet place for vinyl, games, films and books: what you own, and what you're still missing. Coming soon on iOS.">
+<meta name="theme-color" content="#1d1d1f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Kept — Coming Soon">
-<meta property="og:description" content="A quiet home for your vinyl, games, and books. Coming soon to iOS.">
-<meta property="og:image" content="../assets/img/apps/kept-touch-180.png">
-<meta name="theme-color" content="#0b0d14" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f7f3ea" media="(prefers-color-scheme: light)">
+<meta property="og:site_name" content="Apogee Labs">
+<meta property="og:title" content="Kept — a calm shelf for what you collect">
+<meta property="og:description" content="Vinyl, games, films, books. One quiet place. Coming soon on iOS.">
+<meta property="og:image" content="../assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="../assets/img/og.png">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../assets/img/apps/kept-touch-180.png">
 <link rel="stylesheet" href="../assets/css/style.css">
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
-<main class="linkpage">
-  <div class="wrap">
-    <div class="link-card">
-      <a class="back" href="../">&larr; Apogee Labs</a>
-      <img class="icon-lg" src="../assets/img/apps/kept-touch-180.png" alt="Kept app icon" width="74" height="74">
-      <p class="kicker">Calm collection tracking</p>
-      <h1>Kept</h1>
-      <span class="badge-soon">Coming soon &middot; iOS</span>
-      <p class="tag">A quiet home for your vinyl, games, and books — what you have, what it's worth. We're putting the finishing touches on it.</p>
+<a class="skip-link" href="#main">Skip to content</a>
 
-      <div class="stack">
-        <a class="btn primary block" href="https://airwinn.github.io/kept-site/">See the preview</a>
+<nav class="nav" aria-label="Primary">
+  <div class="nav__in">
+    <a class="brand" href="../">
+      <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <ellipse cx="32" cy="34" rx="22" ry="12.5" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="3.4" transform="rotate(-20 32 34)"/>
+        <circle cx="32" cy="34" r="6" fill="currentColor" fill-opacity=".28"/>
+        <circle cx="47" cy="16" r="6" fill="currentColor"/>
+      </svg>
+      <span>Apogee Labs</span>
+    </a>
+    <a href="../#marge">Marge</a>
+    <a href="../#notch">Notch</a>
+  </div>
+</nav>
+
+<main class="band page" id="main" style="--accent:#e2613a">
+  <div class="inner">
+    <div class="card">
+      <img class="card__icon" src="../assets/img/apps/kept-touch-180.png" alt="" width="88" height="88" fetchpriority="high">
+      <p class="eyebrow">Kept</p>
+      <h1>A calm shelf for the things you keep.</h1>
+      <p class="sub">Vinyl, games, films, books. One quiet place for what you own — and what you're still missing.</p>
+
+      <div class="stack" style="justify-items:center">
+        <span class="chip">Coming soon &middot; iOS</span>
       </div>
 
-      <div class="qr-block">
-        <div class="qr-frame">
-          <img src="../qr/kept.svg" alt="QR code linking to this page" width="100%" height="100%">
+      <div class="qr">
+        <div class="qr__frame">
+          <img src="../qr/kept.svg" alt="QR code linking to this page" width="108" height="108" loading="lazy">
         </div>
         <span>Scan to come back later</span>
       </div>
 
-      <p class="fine">
-        No store link yet ·
-        <a href="https://airwinn.github.io/kept-site/">airwinn.github.io/kept-site</a>
-      </p>
+      <section class="detail" id="detail">
+        <h2>What it will do</h2>
+        <ul>
+          <li>Vinyl, games, films and books, in one shelf.</li>
+          <li>What you own, and what's still missing from a set.</li>
+          <li>No feed, no streaks, nobody to impress.</li>
+          <li>iOS first.</li>
+        </ul>
+      </section>
+
+      <p class="fine">Not in the App Store yet — this page will hold the link the day it is.</p>
+      <p class="fine"><a class="back" href="../">&larr; Apogee Labs</a></p>
     </div>
   </div>
 </main>
+
+<script src="../assets/js/site.js" defer></script>
 </body>
 </html>

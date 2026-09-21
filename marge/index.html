@@ -2,45 +2,79 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Marge — Reseller Profit Tracker</title>
-<meta name="description" content="Marge tracks your real profit after every fee — Vinted, eBay, Depop, Poshmark. Start your 7-day free trial.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marge — your real profit after every fee</title>
+<meta name="description" content="Marge works out what a sale actually earned you after platform fees, postage and what you paid. Vinted, eBay, Depop, Poshmark. iOS and Android.">
+<meta name="theme-color" content="#1d1d1f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Marge — Reseller Profit Tracker">
-<meta property="og:description" content="Your real profit after every fee. Log a flip in seconds, see what actually landed.">
-<meta property="og:image" content="../assets/img/apps/marge-touch-180.png">
-<meta name="theme-color" content="#0b0d14" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#f7f3ea" media="(prefers-color-scheme: light)">
+<meta property="og:site_name" content="Apogee Labs">
+<meta property="og:title" content="Marge — your real profit after every fee">
+<meta property="og:description" content="Log a sale, see what actually landed. Vinted, eBay, Depop, Poshmark.">
+<meta property="og:image" content="../assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="../assets/img/og.png">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../assets/img/apps/marge-touch-180.png">
 <link rel="stylesheet" href="../assets/css/style.css">
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
-<main class="linkpage">
-  <div class="wrap">
-    <div class="link-card">
-      <a class="back" href="../">&larr; Apogee Labs</a>
-      <img class="icon-lg" src="../assets/img/apps/marge-touch-180.png" alt="Marge app icon" width="74" height="74">
-      <p class="kicker">Reseller profit tracker</p>
-      <h1>Get Marge</h1>
-      <p class="tag">Your real profit after every fee.<br>Vinted, eBay, Depop, Poshmark.</p>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav__in">
+    <a class="brand" href="../">
+      <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <ellipse cx="32" cy="34" rx="22" ry="12.5" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="3.4" transform="rotate(-20 32 34)"/>
+        <circle cx="32" cy="34" r="6" fill="currentColor" fill-opacity=".28"/>
+        <circle cx="47" cy="16" r="6" fill="currentColor"/>
+      </svg>
+      <span>Apogee Labs</span>
+    </a>
+    <a href="../#notch">Notch</a>
+    <a href="../#kept">Kept</a>
+  </div>
+</nav>
+
+<main class="band page" id="main" style="--accent:#1d8f66">
+  <div class="inner">
+    <div class="card">
+      <img class="card__icon" src="../assets/img/apps/marge-touch-180.png" alt="" width="88" height="88" fetchpriority="high">
+      <p class="eyebrow">Marge</p>
+      <h1>Your real profit after every fee.</h1>
+      <p class="sub">Log a sale in seconds. Marge takes off the platform's cut, the postage and what you paid, and shows you what actually landed.</p>
 
       <div class="stack">
-        <a class="btn primary block" id="primary" href="https://apps.apple.com/app/id6776045609">Download on the App Store</a>
-        <a class="btn ghost block" id="secondary" href="https://play.google.com/store/apps/details?id=com.flipfolio.flipfolio">Get it on Google Play</a>
+        <a class="btn btn--block" id="primary" href="https://apps.apple.com/app/id6776045609">Download on the App Store</a>
+        <a class="btn btn--ghost btn--block" id="secondary" href="https://play.google.com/store/apps/details?id=com.flipfolio.flipfolio">Get it on Google Play</a>
       </div>
 
-      <div class="qr-block">
-        <div class="qr-frame">
-          <img src="../qr/marge.svg" alt="QR code linking to this page" width="100%" height="100%">
+      <div class="qr">
+        <div class="qr__frame">
+          <img src="../qr/marge.svg" alt="QR code linking to this page" width="108" height="108" loading="lazy">
         </div>
         <span>Scan to open on your phone</span>
       </div>
 
+      <section class="detail" id="detail">
+        <h2>What it does</h2>
+        <ul>
+          <li>Log a flip in seconds — item, price, platform.</li>
+          <li>Fees, postage and cost of goods come off automatically.</li>
+          <li>Profit per item, per platform, per month.</li>
+          <li>Offline-first: it works with no signal.</li>
+          <li>Vinted, eBay, Depop and Poshmark.</li>
+        </ul>
+      </section>
+
       <p class="fine">
-        7-day free trial, then Pro or Expert &middot; iOS &amp; Android ·
+        iOS &amp; Android &middot; 7-day trial, then a subscription &middot;
         <a href="https://airwinn.github.io/marge-legal/privacy-policy.html">Privacy</a>
       </p>
+      <p class="fine"><a class="back" href="../">&larr; Apogee Labs</a></p>
     </div>
   </div>
 </main>
@@ -72,18 +106,17 @@
 
   function set(el, href, label) { el.href = href; el.textContent = label; }
 
-  if (isIOS) {
-    set(primary, IOS, "Download on the App Store");
-    set(secondary, PLAY, "Get it on Google Play");
-  } else if (isAndroid) {
+  if (isAndroid) {
     set(primary, PLAY, "Get it on Google Play");
     set(secondary, IOS, "Download on the App Store");
   } else {
-    // Desktop: show both, no auto-redirect.
+    // iOS and desktop both lead with the App Store; desktop keeps both plus
+    // the QR code, and nothing ever auto-redirects.
     set(primary, IOS, "Download on the App Store");
     set(secondary, PLAY, "Get it on Google Play");
   }
 })();
 </script>
+<script src="../assets/js/site.js" defer></script>
 </body>
 </html>
