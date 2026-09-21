@@ -4,6 +4,25 @@
 (function () {
   "use strict";
 
+  /* -- 0. Ribh's store links ------------------------------------------------
+     Ribh isn't hosted here, so there's no smart-link page to do the switching.
+     Desktop keeps both stores named; a phone keeps only its own. Runs before
+     the reduced-motion bail-out — it's navigation, not motion. */
+  var rIos = document.getElementById("ribh-ios"),
+      rPlay = document.getElementById("ribh-play");
+  if (rIos && rPlay) {
+    var rUa = navigator.userAgent || "";
+    var mine = /Android/.test(rUa) ? rPlay
+             : (/iPad|iPhone|iPod/.test(rUa) ||
+                (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)) ? rIos
+             : null;
+    if (mine) {
+      (mine === rIos ? rPlay : rIos).remove();
+      mine.textContent = "Get the app";
+      mine.setAttribute("aria-label", "Get the app \u2014 Ribh");
+    }
+  }
+
   var reduced = matchMedia("(prefers-reduced-motion: reduce)");
   if (reduced.matches) return;
 
