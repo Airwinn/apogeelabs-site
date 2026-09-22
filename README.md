@@ -71,7 +71,11 @@ python3 -m venv .qrvenv && ./.qrvenv/bin/pip install segno
 
 Writes `qr/*.svg` (used on the site) and `qr/print/*.png` at 1024px.
 
-## Regenerating the OG card
+## Brand
 
-`assets/img/og.png` is a 1200×630 screenshot of `tools/og-card.html`. Edit the
-template, open it in a browser at exactly 1200×630, and capture.
+The logo, the colours and the reasoning behind both live in `assets/LOGO.md`.
+`assets/og-image.png` is rendered from `assets/og-image.svg`:
+
+```sh
+rsvg-convert -w 1200 -h 630 assets/og-image.svg -o assets/og-image.png
+```

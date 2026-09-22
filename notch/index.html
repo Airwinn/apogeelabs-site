@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Notch — chores and shared bills for your flat</title>
 <meta name="description" content="Notch keeps score on the flat: chores worth points, shared bills, and a settle-up that ends the argument. Free to download on iOS and Android.">
-<meta name="theme-color" content="#1d1d1f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#14141a" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://apogeelabs.org/notch/">
@@ -14,12 +14,15 @@
 <meta property="og:url" content="https://apogeelabs.org/notch/">
 <meta property="og:title" content="Notch — chores and shared bills for your flat">
 <meta property="og:description" content="Who actually did the dishes. Chores, shared bills, and who owes who.">
-<meta property="og:image" content="https://apogeelabs.org/assets/img/og.png">
+<meta property="og:image" content="https://apogeelabs.org/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://apogeelabs.org/assets/img/og.png">
-<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="../assets/img/favicon-32.png" sizes="32x32">
+<meta name="twitter:image" content="https://apogeelabs.org/assets/og-image.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="../assets/img/apps/notch-touch-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap">
 <link rel="stylesheet" href="../assets/css/style.css">
 <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -29,10 +32,9 @@
 <nav class="nav" aria-label="Primary">
   <div class="nav__in">
     <a class="brand" href="../">
-      <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-        <ellipse cx="32" cy="34" rx="22" ry="12.5" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="3.4" transform="rotate(-20 32 34)"/>
-        <circle cx="32" cy="34" r="6" fill="currentColor" fill-opacity=".28"/>
-        <circle cx="47" cy="16" r="6" fill="currentColor"/>
+      <svg class="mark" viewBox="3 16 96 68" aria-hidden="true" focusable="false">
+        <path class="orbit-arc" d="M75.23 63.47A40 26 -20 1 1 60.15 22.03" fill="none" stroke-width="11" stroke-linecap="round"/>
+        <circle class="apogee" cx="85.36" cy="36.32" r="13"/>
       </svg>
       <span>Apogee Labs</span>
     </a>
@@ -41,10 +43,11 @@
   </div>
 </nav>
 
-<main class="band page" id="main" style="--accent:#ff4d4d">
+<main class="band page" id="main" style="--accent:var(--c-notch)">
   <div class="inner">
     <div class="card">
       <img class="card__icon" src="../assets/img/apps/notch-touch-180.png" alt="" width="88" height="88" fetchpriority="high">
+      <i class="rule" aria-hidden="true"></i>
       <p class="eyebrow" id="kicker">Notch</p>
       <h1 id="heading">Who actually did the dishes.</h1>
       <p class="sub" id="tag">Chores worth points, shared bills, and a weekly settle-up that ends the argument.</p>

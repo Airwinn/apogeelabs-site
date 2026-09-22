@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Apogee Labs">
+  <title>Apogee Labs</title>
+  <rect width="64" height="64" rx="14" fill="#0B0D14"/>
+  <g transform="translate(32 32) scale(0.52) translate(-51.00 -50.00)">
+  <path d="M75.23 63.47A40.0 26.0 -20 1 1 60.15 22.03"
+        fill="none" stroke="#F5F5F7" stroke-opacity=".82" stroke-width="11" stroke-linecap="round"/>
+  <circle cx="85.36" cy="36.32" r="13" fill="#6D5BF7"/>
+  </g>
+</svg>

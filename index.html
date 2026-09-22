@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Apogee Labs — apps that do one thing, exactly</title>
 <meta name="description" content="A small independent studio. Marge tracks your real profit after every fee, Notch settles chores and bills with your flatmates, Ribh tracks real profit for every shop in Morocco, and Kept is a calm home for what you collect.">
-<meta name="theme-color" content="#1d1d1f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#14141a" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="light dark">
 
@@ -14,18 +14,22 @@
 <meta property="og:site_name" content="Apogee Labs">
 <meta property="og:url" content="https://apogeelabs.org/">
 <meta property="og:title" content="Apogee Labs — apps that do one thing, exactly">
-<meta property="og:description" content="Marge, Notch, Ribh and Kept. Four focused apps from a small independent studio.">
-<meta property="og:image" content="https://apogeelabs.org/assets/img/og.png">
+<meta property="og:description" content="Small, sharp apps for people who sell, share, and collect. Marge, Notch, Ribh and Kept.">
+<meta property="og:image" content="https://apogeelabs.org/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Apogee Labs — small, sharp apps for people who sell, share, and collect.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Apogee Labs — apps that do one thing, exactly">
-<meta name="twitter:description" content="Marge, Notch, Ribh and Kept. Four focused apps from a small independent studio.">
-<meta name="twitter:image" content="https://apogeelabs.org/assets/img/og.png">
+<meta name="twitter:description" content="Small, sharp apps for people who sell, share, and collect. Marge, Notch, Ribh and Kept.">
+<meta name="twitter:image" content="https://apogeelabs.org/assets/og-image.png">
 
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -35,10 +39,9 @@
 <nav class="nav" aria-label="Primary">
   <div class="nav__in">
     <a class="brand" href="./">
-      <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-        <ellipse cx="32" cy="34" rx="22" ry="12.5" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="3.4" transform="rotate(-20 32 34)"/>
-        <circle cx="32" cy="34" r="6" fill="currentColor" fill-opacity=".28"/>
-        <circle cx="47" cy="16" r="6" fill="currentColor"/>
+      <svg class="mark" viewBox="3 16 96 68" aria-hidden="true" focusable="false">
+        <path class="orbit-arc" d="M75.23 63.47A40 26 -20 1 1 60.15 22.03" fill="none" stroke-width="11" stroke-linecap="round"/>
+        <circle class="apogee" cx="85.36" cy="36.32" r="13"/>
       </svg>
       <span>Apogee Labs</span>
     </a>
@@ -79,22 +82,25 @@
     </div>
 
     <div class="inner">
+      <i class="rule reveal" aria-hidden="true"></i>
       <p class="eyebrow reveal">Apogee Labs</p>
       <h1 class="display reveal" style="--d:1">Apps that do one thing. Exactly.</h1>
       <p class="sub reveal" style="--d:2">A small independent studio. Four apps, each built to be the best possible answer to a single question.</p>
-      <div class="links reveal" style="--d:3">
+      <p class="studio reveal" style="--d:3">Small, sharp apps for people who sell, share, and collect.</p>
+      <div class="links reveal" style="--d:4">
         <a class="tlink" href="#marge">Meet the apps</a>
       </div>
     </div>
   </section>
 
   <!-- =========================================================== Marge -- -->
-  <section class="band band--dark pin" id="marge" style="--accent:#1d8f66" aria-labelledby="marge-h">
+  <section class="band band--dark pin" id="marge" style="--accent:var(--c-marge)" aria-labelledby="marge-h">
     <div class="pin__track">
       <div class="pin__stage">
         <div class="inner">
           <div class="pin__grid grid12">
             <div class="pin__copy">
+              <i class="rule" aria-hidden="true"></i>
               <p class="eyebrow">Marge</p>
               <h2 class="headline" id="marge-h">Your real profit after every&nbsp;fee.</h2>
               <div class="notes">
@@ -144,12 +150,13 @@
   </section>
 
   <!-- =========================================================== Notch -- -->
-  <section class="band pin" id="notch" style="--accent:#ff4d4d" aria-labelledby="notch-h">
+  <section class="band pin" id="notch" style="--accent:var(--c-notch)" aria-labelledby="notch-h">
     <div class="pin__track">
       <div class="pin__stage">
         <div class="inner">
           <div class="pin__grid grid12">
             <div class="pin__copy">
+              <i class="rule" aria-hidden="true"></i>
               <p class="eyebrow">Notch</p>
               <h2 class="headline" id="notch-h">Who actually did the dishes.</h2>
               <div class="notes">
@@ -195,12 +202,13 @@
   </section>
 
   <!-- ============================================================ Ribh -- -->
-  <section class="band band--dark pin" id="ribh" style="--accent:#e8a33d" aria-labelledby="ribh-h">
+  <section class="band band--dark pin" id="ribh" style="--accent:var(--c-ribh)" aria-labelledby="ribh-h">
     <div class="pin__track">
       <div class="pin__stage">
         <div class="inner">
           <div class="pin__grid grid12">
             <div class="pin__copy">
+              <i class="rule" aria-hidden="true"></i>
               <p class="eyebrow">Ribh <span lang="ar" dir="rtl">&#1585;&#1576;&#1581;</span></p>
               <h2 class="headline" id="ribh-h">Real profit for every shop in Morocco.</h2>
               <p class="note" lang="fr" style="margin-top:14px">Pour toutes les boutiques et vendeurs au Maroc.</p>
@@ -262,12 +270,13 @@
   </section>
 
   <!-- ============================================================ Kept -- -->
-  <section class="band pin" id="kept" style="--accent:#e2613a" aria-labelledby="kept-h">
+  <section class="band pin" id="kept" style="--accent:var(--c-kept)" aria-labelledby="kept-h">
     <div class="pin__track">
       <div class="pin__stage">
         <div class="inner">
           <div class="pin__grid grid12">
             <div class="pin__copy">
+              <i class="rule" aria-hidden="true"></i>
               <p class="eyebrow">Kept</p>
               <h2 class="headline" id="kept-h">A calm shelf for the things you keep.</h2>
               <div class="notes">
@@ -304,10 +313,49 @@
       </div>
     </div>
   </section>
+  <!-- =========================================================== tiles -- -->
+  <section class="band apps" aria-labelledby="apps-h">
+    <div class="inner">
+      <h2 class="apps__h" id="apps-h">All four, in one place.</h2>
+      <div class="tiles">
+        <a class="tile" href="marge/" style="--accent:var(--c-marge)">
+          <img class="tile__ico" src="assets/img/apps/marge-icon-192.png" alt="" width="46" height="46" loading="lazy" decoding="async">
+          <span class="tile__n">Marge</span>
+          <p class="tile__d">Your real profit after every fee, on Vinted, eBay, Depop and Poshmark.</p>
+          <span class="chip">iOS &amp; Android</span>
+        </a>
+        <a class="tile" href="notch/" style="--accent:var(--c-notch)">
+          <img class="tile__ico" src="assets/img/apps/notch-icon-192.png" alt="" width="46" height="46" loading="lazy" decoding="async">
+          <span class="tile__n">Notch</span>
+          <p class="tile__d">Chores worth points, shared bills, and a settle-up that ends the argument.</p>
+          <span class="chip">Free</span>
+        </a>
+        <a class="tile" href="https://ribh.ma" style="--accent:var(--c-ribh)">
+          <img class="tile__ico" src="assets/img/apps/ribh-icon-192.png" alt="" width="46" height="46" loading="lazy" decoding="async">
+          <span class="tile__n">Ribh</span>
+          <p class="tile__d">Real profit for every shop in Morocco — stock, expenses, courier payouts.</p>
+          <span class="chip">ribh.ma</span>
+        </a>
+        <a class="tile" href="kept/" style="--accent:var(--c-kept)">
+          <img class="tile__ico" src="assets/img/apps/kept-icon-192.png" alt="" width="46" height="46" loading="lazy" decoding="async">
+          <span class="tile__n">Kept</span>
+          <p class="tile__d">A calm shelf for vinyl, games, films and books — and what you're still missing.</p>
+          <span class="chip">Coming soon</span>
+        </a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="band band--dark foot">
   <div class="inner foot__in">
+    <a class="brand" href="./">
+      <svg class="mark" viewBox="3 16 96 68" aria-hidden="true" focusable="false">
+        <path class="orbit-arc" d="M75.23 63.47A40 26 -20 1 1 60.15 22.03" fill="none" stroke-width="11" stroke-linecap="round"/>
+        <circle class="apogee" cx="85.36" cy="36.32" r="13"/>
+      </svg>
+      <span>Apogee Labs</span>
+    </a>
     <span>&copy; 2026 Apogee Labs. Formerly Airwinn.</span>
     <span class="foot__also"><a href="https://ribh.ma">ribh.ma</a></span>
   </div>
