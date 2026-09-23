@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Join a flat on Notch</title>
+<meta name="description" content="Someone asked you to join their flat on Notch. Open the app and join with the code, or install it first.">
+<meta name="theme-color" content="#14141a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://apogeelabs.org/notch/join/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Apogee Labs">
+<meta property="og:url" content="https://apogeelabs.org/notch/join/">
+<meta property="og:title" content="Join a flat on Notch">
+<meta property="og:description" content="Chores worth points, shared bills, and who owes who. Join with a code.">
+<meta property="og:image" content="https://apogeelabs.org/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://apogeelabs.org/assets/og-image.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="../../assets/img/apps/notch-touch-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav__in">
+    <a class="brand" href="../../">
+      <svg class="mark" viewBox="3 16 96 68" aria-hidden="true" focusable="false">
+        <path class="orbit-arc" d="M75.23 63.47A40 26 -20 1 1 60.15 22.03" fill="none" stroke-width="11" stroke-linecap="round"/>
+        <circle class="apogee" cx="85.36" cy="36.32" r="13"/>
+      </svg>
+      <span>Apogee Labs</span>
+    </a>
+    <a href="../">Notch</a>
+    <a href="../../#kept">Kept</a>
+  </div>
+</nav>
+
+<main class="band page" id="main" style="--accent:var(--c-notch)">
+  <div class="inner">
+    <div class="card">
+      <img class="card__icon" src="../../assets/img/apps/notch-touch-180.png" alt="" width="88" height="88" fetchpriority="high">
+      <i class="rule" aria-hidden="true"></i>
+      <p class="eyebrow" id="kicker">You're invited</p>
+      <h1 id="heading">Join your flat on Notch.</h1>
+      <p class="sub" id="tag">Someone in your flat asked you to join. Open Notch and use the code below.</p>
+
+      <div class="invite" id="invite" hidden>
+        <p class="invite__lab">Your flat's join code</p>
+        <p class="invite__code" id="invite-code"></p>
+        <p class="invite__hint" id="invite-hint">Tap below to open Notch, or install it first — the code still works after.</p>
+      </div>
+
+      <div class="stack">
+        <a class="btn btn--block" id="open" href="#" hidden>Open Notch &rarr; Join with code</a>
+        <a class="btn btn--block" id="primary" href="https://apps.apple.com/app/id6773518599">Download on the App Store</a>
+        <a class="btn btn--ghost btn--block" id="secondary" href="https://play.google.com/store/apps/details?id=com.notch.app">Get it on Google Play</a>
+      </div>
+
+      <section class="detail" id="detail">
+        <h2>What you're joining</h2>
+        <ul>
+          <li>Chores worth points, claimed by whoever does them.</li>
+          <li>A weekly season, and a board that keeps the score.</li>
+          <li>Shared bills split, with a running tally of who owes who.</li>
+          <li>Free for everyone in the flat. No per-person charge.</li>
+        </ul>
+      </section>
+
+      <p class="fine">
+        Free to download &middot; iOS &amp; Android &middot;
+        <a href="https://airwinn.github.io/notch-privacy/">Privacy</a>
+      </p>
+      <p class="fine"><a class="back" href="../">&larr; About Notch</a></p>
+    </div>
+  </div>
+</main>
+
+<script>
+(function () {
+  var IOS  = "https://apps.apple.com/app/id6773518599";
+  var PLAY = "https://play.google.com/store/apps/details?id=com.notch.app";
+
+  var ua = navigator.userAgent || "";
+  var isAndroid = /Android/.test(ua);
+
+  var q = new URLSearchParams(location.search);
+  // ?code= is the current link; ?join= is what /notch/ has always accepted, so
+  // an older shared link keeps working here too.
+  var code = q.get("code") || q.get("join") || "";
+
+  // Match the app's normaliser (lib/joinCode.ts): strip punctuation, upper-case,
+  // fold the two characters people mis-read. Never rewrite the URL from this —
+  // it is only what we display and hand to the app.
+  code = code.toUpperCase().replace(/[^A-Z0-9]/g, "").replace(/O/g, "0").replace(/I/g, "1").slice(0, 8);
+
+  if (/^[A-Z0-9]{4,8}$/.test(code)) {
+    document.getElementById("invite-code").textContent = code;
+    document.getElementById("invite").hidden = false;
+
+    var open = document.getElementById("open");
+    open.href = "notch://join?code=" + encodeURIComponent(code);
+    open.hidden = false;
+
+    // Survives the trip through the app store: /notch/ reads the same key.
+    try { localStorage.setItem("notch.invite", code); } catch (e) {}
+  } else {
+    // No usable code — don't pretend there's an invite to accept.
+    document.getElementById("kicker").textContent = "Notch";
+    document.getElementById("heading").textContent = "Join a flat on Notch.";
+    document.getElementById("tag").textContent =
+      "Ask your flatmate for their six-character join code, then enter it in the app.";
+  }
+
+  function set(el, href, label) { el.href = href; el.textContent = label; }
+  var primary = document.getElementById("primary");
+  var secondary = document.getElementById("secondary");
+  if (isAndroid) {
+    set(primary, PLAY, "Get it on Google Play");
+    set(secondary, IOS, "Download on the App Store");
+  } else {
+    set(primary, IOS, "Download on the App Store");
+    set(secondary, PLAY, "Get it on Google Play");
+  }
+})();
+</script>
+<script src="../../assets/js/site.js" defer></script>
+</body>
+</html>
