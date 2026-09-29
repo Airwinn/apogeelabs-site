@@ -691,6 +691,12 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 }
 .btn--ghost:hover { background: color-mix(in srgb, var(--ink) 7%, transparent); }
 .btn--block { width: 100%; }
+.btn--soon, .btn--soon:hover {
+  background: transparent;
+  color: var(--ink-2);
+  border: 1px dashed var(--hair);
+  cursor: default;
+}
 
 /* ------------------------------------------------------ link pages ------ */
 .page {
@@ -806,30 +812,11 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   color: var(--ink-2);
   letter-spacing: -.004em;
 }
-.fine a, .foot__also a {
+.fine a {
   color: var(--link);
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--hair);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: -.005em;
-  color: var(--ink-2);
-}
-.chip::before {
-  content: "";
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
 }
 
 .back {
@@ -843,37 +830,36 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
 }
 .back:hover { color: var(--ink); }
 
-/* ------------------------------------------------------- app tiles ------ */
+/* ------------------------------------------------------- app cards ------ */
+/* One template for every app, used in the same order every time. */
 .apps { padding: clamp(60px, 10vh, 104px) 0 clamp(64px, 11vh, 112px); }
 .apps__h {
   font-family: var(--display);
   font-size: clamp(1.25rem, 2.4vw, 1.7rem);
   letter-spacing: -.02em;
 }
-.tiles {
+.cards {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(12px, 1.6vw, 18px);
   margin-top: clamp(24px, 3.4vw, 36px);
 }
-@media (max-width: 820px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 720px) { .cards { grid-template-columns: minmax(0, 1fr); } }
 
-.tile {
+.app {
   position: relative;
   display: grid;
   align-content: start;
-  gap: 10px;
-  padding: clamp(18px, 2.2vw, 24px);
+  justify-items: start;
+  gap: 12px;
+  padding: clamp(20px, 2.6vw, 30px);
   border-radius: var(--r);
   border: 1px solid var(--hair);
   background: color-mix(in srgb, var(--accent) 5%, transparent);
-  text-decoration: none;
   overflow: hidden;
-  transition: transform .32s var(--ease), box-shadow .32s var(--ease),
-              border-color .32s var(--ease);
 }
 /* thin accent rule along the top edge */
-.tile::before {
+.app::before {
   content: "";
   position: absolute;
   inset: 0 0 auto;
@@ -881,28 +867,58 @@ h1, h2, h3 { margin: 0; font-weight: 600; }
   background: var(--accent);
   opacity: .75;
 }
-.tile:hover {
-  transform: translateY(-5px);
-  border-color: color-mix(in srgb, var(--accent) 45%, var(--hair));
-  box-shadow: 0 22px 44px -26px color-mix(in srgb, var(--accent) 65%, #000);
-}
-.tile:hover::before { opacity: 1; }
-.tile__ico { width: 46px; height: 46px; border-radius: 12px; }
-.tile__n {
+.app p { margin: 0; }
+.app__head { display: flex; align-items: center; gap: 14px; }
+.app__ico { width: 52px; height: 52px; border-radius: 13px; }
+.app__n {
   font-family: var(--display);
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: 1.3rem;
   letter-spacing: -.015em;
-  color: var(--ink);
 }
-.tile__d {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.45;
-  letter-spacing: -.004em;
+.app__n [lang="ar"] { font-size: 1.05em; margin-inline-start: .18em; }
+.app__p {
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  line-height: 1.3;
+  letter-spacing: -.015em;
+  font-weight: 500;
+}
+.app__a { font-size: 14px; line-height: 1.45; color: var(--ink-2); }
+.app .tlink { font-size: 15px; }
+
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--hair);
+  background: color-mix(in srgb, var(--ink) 5%, transparent);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -.008em;
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color .25s var(--ease), background-color .25s var(--ease);
+}
+a.badge:hover {
+  border-color: color-mix(in srgb, var(--accent) 60%, var(--hair));
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+.badge--soon {
+  border-style: dashed;
+  background: transparent;
   color: var(--ink-2);
 }
-.tile .chip { justify-self: start; padding: 4px 11px; font-size: 12px; }
+
+/* The price line reads the same on every app, card and page. */
+.price {
+  font-size: 14px;
+  letter-spacing: -.005em;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+.card .price { margin: 14px 0 0; }
 
 /* --------------------------------------------------------- footer ------- */
 .foot {
