@@ -47,7 +47,7 @@
     <div class="card" style="width:min(100%, 720px); text-align:left">
       <p class="eyebrow" style="text-align:center">Kept</p>
       <h1 style="text-align:center; font-size:clamp(1.8rem, 6vw, 2.4rem)">Privacy Policy</h1>
-      <p class="sub" style="text-align:center">Last updated 2026-06-24. Questions: <a href="mailto:hello@apogeelabs.org">hello@apogeelabs.org</a>.</p>
+      <p class="sub" style="text-align:center">Last updated 2026-10-01. Questions: <a href="mailto:hello@apogeelabs.org">hello@apogeelabs.org</a>.</p>
 
       <section class="detail" style="border-top:none; margin-top:clamp(28px,5vh,40px)">
         <h2>The short version</h2>
@@ -55,6 +55,7 @@
           <li>Your collection lives on your device and syncs to your own iCloud, under your own Apple ID. We never see it.</li>
           <li>The optional AI scan sends the photo (or text) you submit to our scan service, which passes it to OpenAI only to identify the item. We don't keep it.</li>
           <li>Searches for covers and details go to well-known third-party catalogs (iTunes, Open Library, and others) so the app can show real artwork.</li>
+          <li>The AI scan also sends an anonymous device id (not linked to you), and Kept sends crash reports to Sentry so we can fix bugs.</li>
           <li>No tracking, no ads, no analytics SDKs, no advertising identifier.</li>
           <li>We do not sell your data. Ever.</li>
         </ul>
@@ -67,7 +68,7 @@
 
       <section class="detail">
         <h2>The AI scan — sends a photo</h2>
-        <p>The optional "Identify with AI" scan (a Pro feature) sends the photo you capture to a scan service we operate, which forwards it to OpenAI to identify the item. The photo is sent only to identify what you photographed, is not stored after identification, and is not linked to you — there is no account. Barcode scanning, title search, and manual entry never send a photo.</p>
+        <p>The optional "Identify with AI" scan (a Pro feature) sends the photo you capture to a scan service we operate, which forwards it to OpenAI to identify the item. The photo is sent only to identify what you photographed, is not stored after identification, and is not linked to you — there is no account. Each scan request carries a random anonymous device id, used only to apply usage limits. Barcode scanning, title search, and manual entry never send a photo.</p>
       </section>
 
       <section class="detail">
@@ -78,6 +79,11 @@
       <section class="detail">
         <h2>Searches for covers and details</h2>
         <p>When you search by title or scan a barcode, Kept looks the item up in public catalogs — Apple's iTunes Store, MusicBrainz, Cover Art Archive, Open Library, Discogs, RAWG, TMDB, OMDb, UPCItemDB, and IGDB (through our scan service) — so it can show the real cover art. Only the search text or barcode is sent; we don't store your searches.</p>
+      </section>
+
+      <section class="detail">
+        <h2>Crash reports</h2>
+        <p>Kept sends crash reports to Sentry so we can find and fix bugs. A report contains technical details such as the app version, the device model and OS version, and the stack trace of the crash. It does not include your collection, photos or any account, because there is none.</p>
       </section>
 
       <section class="detail">
