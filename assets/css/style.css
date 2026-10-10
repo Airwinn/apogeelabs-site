@@ -947,6 +947,27 @@ a.badge:hover {
 }
 .card .price { margin: 14px 0 0; }
 
+/* ------------------------------------------------------- socials ------- */
+/* Monochrome brand glyphs (assets/img/social.svg), tinted like the badges. */
+.social { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }
+.social a {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--hair);
+  background: color-mix(in srgb, var(--ink) 5%, transparent);
+  color: var(--ink-2);
+  transition: color .25s var(--ease), border-color .25s var(--ease), background-color .25s var(--ease);
+}
+.social a:hover, .social a:focus-visible {
+  color: var(--ink);
+  border-color: color-mix(in srgb, var(--accent) 60%, var(--hair));
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+.social svg { width: 18px; height: 18px; fill: currentColor; }
+
 /* --------------------------------------------------------- footer ------- */
 .foot {
   border-top: 1px solid var(--hair);
