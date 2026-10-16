@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Join a flat on Notch</title>
-<meta name="description" content="Someone asked you to join their flat on Notch. Open the app and join with the code, or install it first.">
+<title>Join your place on Notch</title>
+<meta name="description" content="Someone you live with asked you to join them on Notch. Open the app and join with the code, or install it first.">
 <meta name="theme-color" content="#14141a" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="light dark">
@@ -13,7 +13,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Apogee Labs">
 <meta property="og:url" content="https://apogeelabs.org/notch/join/">
-<meta property="og:title" content="Join a flat on Notch">
+<meta property="og:title" content="Join your place on Notch">
 <meta property="og:description" content="Chores worth points, shared bills, and who owes who. Join with a code.">
 <meta property="og:image" content="https://apogeelabs.org/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -47,11 +47,11 @@
       <img class="card__icon" src="../../assets/img/apps/notch-touch-180.png" alt="" width="88" height="88" fetchpriority="high">
       <i class="rule" aria-hidden="true"></i>
       <p class="eyebrow" id="kicker">You're invited</p>
-      <h1 id="heading">Join your flat on Notch.</h1>
-      <p class="sub" id="tag">Someone in your flat asked you to join. Open Notch and use the code below.</p>
+      <h1 id="heading">Join your place on Notch.</h1>
+      <p class="sub" id="tag">Someone you live with asked you to join. Open Notch and use the code below.</p>
 
       <div class="invite" id="invite" hidden>
-        <p class="invite__lab">Your flat's join code</p>
+        <p class="invite__lab">Your place's join code</p>
         <p class="invite__code" id="invite-code"></p>
         <p class="invite__hint" id="invite-hint">Tap below to open Notch, or install it first. The code still works after.</p>
       </div>
@@ -68,7 +68,7 @@
           <li>Chores worth points, claimed by whoever does them.</li>
           <li>A weekly season, and a board that keeps the score.</li>
           <li>Shared bills split, with a running tally of who owes who.</li>
-          <li>Free for everyone in the flat. No per-person charge.</li>
+          <li>Free for everyone you live with. No per-person charge.</li>
         </ul>
       </section>
 
@@ -112,9 +112,9 @@
   } else {
     // No usable code — don't pretend there's an invite to accept.
     document.getElementById("kicker").textContent = "Notch";
-    document.getElementById("heading").textContent = "Join a flat on Notch.";
+    document.getElementById("heading").textContent = "Join your place on Notch.";
     document.getElementById("tag").textContent =
-      "Ask your flatmate for their six-character join code, then enter it in the app.";
+      "Ask the person who invited you for the six-character join code, then enter it in the app.";
   }
 
   function set(el, href, label) { el.href = href; el.textContent = label; }

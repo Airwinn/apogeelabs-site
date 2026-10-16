@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Notch: chores and shared bills for your flat</title>
-<meta name="description" content="Notch keeps score on the flat: chores worth points, shared bills, and a settle-up that ends the argument. Free to download on iOS and Android.">
+<title>Notch: chores and shared bills for your place</title>
+<meta name="description" content="Notch keeps score at home: chores worth points, shared bills, and a settle-up that ends the argument. Free to download on iOS and Android.">
 <meta name="theme-color" content="#14141a" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="light dark">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Apogee Labs">
 <meta property="og:url" content="https://apogeelabs.org/notch/">
-<meta property="og:title" content="Notch: chores and shared bills for your flat">
+<meta property="og:title" content="Notch: chores and shared bills for your place">
 <meta property="og:description" content="Who actually did the dishes. Chores, shared bills, and who owes who.">
 <meta property="og:image" content="https://apogeelabs.org/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -50,7 +50,7 @@
 
       <!-- Shown only when arriving from an invite link (?join=CODE). -->
       <div class="invite" id="invite" hidden>
-        <p class="invite__lab">Your flat's invite code</p>
+        <p class="invite__lab">Your place's invite code</p>
         <p class="invite__code" id="invite-code"></p>
         <p class="invite__hint">Install the app, then enter this code to join.</p>
       </div>
@@ -77,7 +77,7 @@
           <li>A weekly season, and a board that keeps the score.</li>
           <li>Shared bills split, with a running tally of who owes who.</li>
           <li>Settle up at the end of the week and start clean.</li>
-          <li>Invite the flat with one code.</li>
+          <li>Invite everyone you live with in one code.</li>
         </ul>
       </section>
 
@@ -113,9 +113,9 @@
     document.getElementById("invite-code").textContent = code;
     document.getElementById("invite").hidden = false;
     document.getElementById("kicker").textContent = "You're invited";
-    document.getElementById("heading").textContent = "Join your flat on Notch.";
+    document.getElementById("heading").textContent = "Join your place on Notch.";
     document.getElementById("tag").textContent =
-      "Someone in your flat asked you to join. Install Notch, then enter the code below.";
+      "Someone you live with asked you to join. Install Notch, then enter the code below.";
     try { localStorage.setItem("notch.invite", code); } catch (e) {}
   }
 
