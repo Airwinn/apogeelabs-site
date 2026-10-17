@@ -72,16 +72,15 @@
     <li>We store your <strong>email address</strong> (or the identifier Apple/Google returns) to operate your
       account. With Sign in with Apple you may use Apple’s “Hide My Email” relay.</li>
     <li>We may email you about your account, for example service problems or changes to your plan; you can opt out at any time by replying STOP to any such email or writing to hello@apogeelabs.org.</li>
-    <li>Your <strong>flips and sales</strong> are mirrored to our database (hosted by Supabase) so they can sync
+    <li>Your <strong>flips, sales, expenses, mileage trips and goal</strong> are mirrored to our database (hosted by Supabase) so they can sync
       to your other devices. Each row is tied to your account and protected by row-level security, so only
       you can read it.</li>
-    <li>Item <strong>photos stay on each device</strong> and are not uploaded.</li>
+    <li>Item <strong>photos stay on each device</strong> and are not synced. Only an AI feature you use sends one (section 2).</li>
   </ul>
   <p>You can <strong>delete your account</strong> at any time from Settings → Account → Delete account. This
-  permanently removes your account and the flips and sales stored on our server. A few code, invite and purchase
-  records stay (section 6). Data already synced to your
-  other devices is removed from those devices on their next sync; local data on the current device follows the
-  app’s normal delete/uninstall behaviour.</p>
+  permanently removes your account and the data it synced to our server, and the app wipes its copy on this
+  device. Copies on your other devices stay there until you delete them or the app. A few code, invite and
+  purchase records stay (section 6).</p>
       </section>
       <section class="detail">
 <h2>2. Data processed when you use AI / lookup features</h2>
@@ -107,10 +106,27 @@
       <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">Our server → UPCitemdb</td>
       <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">To look up the product name and image</td>
     </tr>
+    <tr>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">Scan an invoice</td>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">The invoice photo, or the pages of the PDF you choose</td>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">Our server → Google Gemini</td>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">To read each line item and the total</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">Find a product photo</td>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">The item's name, category and notes, and its photo if it has one</td>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">Our server → Google Gemini. A search phrase only → Google Search, eBay and public catalogs (Apple iTunes, Open Library, Steam, Nintendo, Openverse)</td>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">To find a photo of the product</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">Write a listing</td>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">The item details you typed: name, brand, category, size, model code, condition and notes</td>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">Our server → Google Gemini</td>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">To write a title and description you can paste</td>
+    </tr>
   </table>
-  <p>For abuse and cost protection, our server temporarily processes the network <strong>IP address</strong>
-  of the request to enforce a per-day usage limit. We retain only a per-day request count; we do not build
-  a profile from it.</p>
+  <p>These features need an account. To keep costs in check, our server counts how often each account uses each
+  feature per day. We do not build a profile from it.</p>
   <p>Photos and receipts can contain personal information. Only send images you are comfortable sharing for
   processing. These features are optional; the app is fully usable without them.</p>
       </section>
@@ -121,19 +137,25 @@
   features only, the app sends our server:</p>
   <ul>
     <li><strong>On iPhone</strong>: an <strong>App Attest key</strong> that Apple confirms Marge made on this
-      phone, and a <strong>DeviceCheck</strong> token. With that token our server reads or sets two yes/no
-      flags that Apple keeps for this phone, such as "this phone already had a free month". The app also sends
-      the ID Apple gives Marge on this phone (identifierForVendor); the server checks its format and does not
-      keep it.</li>
-    <li><strong>On Android</strong>: the <strong>Android ID</strong>, with a <strong>Play Integrity</strong>
-      token that covers it. Google reads the token for us and says whether the app and the phone are genuine.
-      Google can also keep a few yes/no flags for this phone, which we use the same way.</li>
+      phone. For a code, and sometimes on the invite screen, it also sends a <strong>DeviceCheck</strong> token. With
+      that token our server reads or sets two yes/no flags that Apple keeps for this phone, such as "this phone
+      already had a free month". The app also sends the ID Apple gives Marge on this phone (identifierForVendor);
+      the server checks its format and does not keep it.</li>
+    <li><strong>On Android</strong>: the <strong>Android ID</strong>. For a code, and sometimes on the invite screen, a
+      <strong>Play Integrity</strong> token covers it. Google reads the token for us and says whether the app and
+      the phone are genuine. Google can also keep a few yes/no flags for this phone, which we use the same way.</li>
   </ul>
-  <p>The server never stores these IDs as they are. It keeps only a <strong>peppered hash</strong>: a one-way
-  code made with a secret key, which cannot be turned back into the ID or matched with other apps. It also
-  keeps a peppered hash of your <strong>email address</strong> (Gmail dots and +tags removed), so one mailbox
-  cannot take a second free month with a new account. Each code and invite request is logged with your
-  account, the hashed phone ID, a peppered hash of the network IP address, the code and the result.</p>
+  <p>The server never stores the Android ID, the DeviceCheck token or identifierForVendor. It names each phone
+  by a <strong>peppered hash</strong>: a one-way code made with a secret key, which cannot be turned back into
+  the ID or matched with other apps. On iPhone that hash is made from the App Attest key. The server also keeps
+  that key's public half and its key ID, because it needs them to check your next request. The key only works
+  for this install of Marge. For each phone, the server records which accounts used it, when, and Google's
+  verdict on Android.</p>
+  <p>Each code and invite request is logged with your account, the hashed phone ID, a peppered hash of the
+  network IP address, the code and the result.</p>
+  <p>Our server also keeps a peppered hash of your <strong>email address</strong> (+tags removed, and dots in
+  Gmail addresses), so one mailbox cannot take a second free month with a new account. It keeps it when you
+  take any free month or free trial, open Invite friends, or delete an account that paid.</p>
   <p><strong>Invites.</strong> Your account gets a referral code and a link (apogeelabs.org/marge/r/ and your
   code). You share it yourself; Marge never reads your contacts. When a friend uses it, we record which account
   invited which, and whether the friend's free month and first payment happened, so we can give you your free
@@ -144,9 +166,10 @@
       <section class="detail">
 <h2>2b. Subscriptions</h2>
   <p>You buy Pro or Expert through Apple or Google; we never see your card. <strong>RevenueCat</strong> manages
-  subscription status for us. When you are signed in, RevenueCat and our server receive your purchase events
-  (product, price, store, dates and transaction IDs) with your account ID. We use them to unlock your plan on
-  all your devices, to apply free months and invite rewards, and to handle refunds.</p>
+  subscription status for us. RevenueCat and our server receive your purchase events (product, price, store,
+  store country, dates and transaction IDs). Before you sign in they carry a random ID; after, your account ID.
+  We use them to unlock your plan on all your devices, to apply free months and invite rewards, and to handle
+  refunds.</p>
       </section>
       <section class="detail">
 <h2>3. Camera and photo library</h2>
@@ -161,27 +184,29 @@
   <ul>
     <li>No name or profile beyond the email/identifier used to sign in (and only if you choose to).</li>
     <li>No advertising identifiers, no ad networks, no cross-app tracking.</li>
-    <li>No profiling. Usage counts and crash reports (section 5) use app IDs, never your account or email.</li>
+    <li>No profiling. Analytics and crash reports (section 5) use app IDs, never your account or email.</li>
     <li>We never sell or rent your data.</li>
   </ul>
       </section>
       <section class="detail">
 <h2>5. Third-party processors</h2>
   <ul>
-    <li><strong>Google Gemini</strong>: processes images/headers you submit to AI features.
+    <li><strong>Google Gemini</strong>: processes the photos, headers and item details you send with the AI features in section 2.
       <a href="https://policies.google.com/privacy" rel="noopener">Google Gemini Privacy Policy</a>.
       API inputs are not used to train their models.</li>
     <li><strong>UPCitemdb</strong>: receives a scanned barcode to return product info.</li>
+    <li><strong>Google Search, eBay and public catalogs</strong> (Apple iTunes, Open Library, Steam, Nintendo,
+      Openverse): receive a search phrase, never your photo, to find a product photo.</li>
     <li><strong>Supabase</strong>: hosts the server functions that broker the requests above and, if you sign
-      in, stores your account and synced flips/sales. It also stores the code, invite and purchase records in
+      in, stores your account and synced data. It also stores the code, invite and purchase records in
       sections 2a and 2b, and our own usage counter: a random install ID and step names such as "onboarding
       finished", never an item, an amount or your email.
       <a href="https://supabase.com/privacy" rel="noopener">Supabase Privacy Policy</a>.</li>
     <li><strong>Apple / Google</strong>: only if you choose “Sign in with Apple” or Google, they authenticate
       you and return an email or identifier. When you use a code or an invite, Apple (App Attest, DeviceCheck)
       or Google (Play Integrity) confirms that the app and the phone are genuine (section 2a).</li>
-    <li><strong>RevenueCat</strong>: manages subscriptions and receives your purchase events and, if you are
-      signed in, your account ID.
+    <li><strong>RevenueCat</strong>: manages subscriptions and receives your purchase events with a random ID
+      or, once you sign in, your account ID.
       <a href="https://www.revenuecat.com/privacy" rel="noopener">RevenueCat Privacy Policy</a>.</li>
     <li><strong>Google Analytics for Firebase</strong>: counts app usage, such as screens opened and "item added"
       or "sale logged" with a category, quantity and amount, never an item name. It uses app IDs, not your
@@ -195,10 +220,12 @@
       <section class="detail">
 <h2>6. Data retention</h2>
   <p>Your inventory: kept on your device until you delete it or uninstall the app. If you sign in, your synced
-  flips/sales are kept on our server until you delete them or delete your account. AI/lookup content: not
-  stored by us after the request completes. Rate-limit counters: a per-IP, per-day count that resets daily.</p>
-  <p>Code and invite records (the peppered hashes of your phone ID, email and IP address, invite records and the
-  request log) and purchase records stay after you delete your account. Their job is to stop the same person or
+  data is kept on our server until you delete it or delete your account. AI/lookup content: not stored by us
+  after the request completes. Usage limits: a count per account and feature per day (for codes, also per
+  hashed IP address).</p>
+  <p>Code and invite records (the peppered hashes of your phone ID, email and IP address, the App Attest key,
+  invite records and the request log) and purchase records stay after you delete your account, with your old
+  account's random ID. Their job is to stop the same person or
   phone from taking a second free month and to handle refunds. They hold no plain email and no inventory.</p>
       </section>
       <section class="detail">
