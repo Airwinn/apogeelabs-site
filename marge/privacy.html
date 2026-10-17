@@ -44,7 +44,7 @@
     <div class="card" style="width:min(100%, 720px); text-align:left">
       <p class="eyebrow" style="text-align:center">Marge</p>
       <h1 style="text-align:center; font-size:clamp(1.8rem, 6vw, 2.4rem)">Privacy Policy</h1>
-      <p class="sub" style="text-align:center">Last updated 9 October 2026. Questions: <a href="mailto:hello@apogeelabs.org">hello@apogeelabs.org</a>.</p>
+      <p class="sub" style="text-align:center">Last updated 17 October 2026. Questions: <a href="mailto:hello@apogeelabs.org">hello@apogeelabs.org</a>.</p>
       <section class="detail" style="border-top:none">
 <div class="wrap">
   
@@ -78,7 +78,8 @@
     <li>Item <strong>photos stay on each device</strong> and are not uploaded.</li>
   </ul>
   <p>You can <strong>delete your account</strong> at any time from Settings → Account → Delete account. This
-  permanently removes your account and the flips and sales stored on our server. Data already synced to your
+  permanently removes your account and the flips and sales stored on our server. A few code, invite and purchase
+  records stay (section 6). Data already synced to your
   other devices is removed from those devices on their next sync; local data on the current device follows the
   app’s normal delete/uninstall behaviour.</p>
       </section>
@@ -114,19 +115,53 @@
   processing. These features are optional; the app is fully usable without them.</p>
       </section>
       <section class="detail">
+<h2>2a. Promo codes and invites</h2>
+  <p>Typing a promo code and the <strong>Invite friends</strong> screen need an account. A free month is one per
+  person, so our server checks that each request comes from the real Marge app on a real phone. For these two
+  features only, the app sends our server:</p>
+  <ul>
+    <li><strong>On iPhone</strong>: an <strong>App Attest key</strong> that Apple confirms Marge made on this
+      phone, and a <strong>DeviceCheck</strong> token. With that token our server reads or sets two yes/no
+      flags that Apple keeps for this phone, such as "this phone already had a free month". The app also sends
+      the ID Apple gives Marge on this phone (identifierForVendor); the server checks its format and does not
+      keep it.</li>
+    <li><strong>On Android</strong>: the <strong>Android ID</strong>, with a <strong>Play Integrity</strong>
+      token that covers it. Google reads the token for us and says whether the app and the phone are genuine.
+      Google can also keep a few yes/no flags for this phone, which we use the same way.</li>
+  </ul>
+  <p>The server never stores these IDs as they are. It keeps only a <strong>peppered hash</strong>: a one-way
+  code made with a secret key, which cannot be turned back into the ID or matched with other apps. It also
+  keeps a peppered hash of your <strong>email address</strong> (Gmail dots and +tags removed), so one mailbox
+  cannot take a second free month with a new account. Each code and invite request is logged with your
+  account, the hashed phone ID, a peppered hash of the network IP address, the code and the result.</p>
+  <p><strong>Invites.</strong> Your account gets a referral code and a link (apogeelabs.org/marge/r/ and your
+  code). You share it yourself; Marge never reads your contacts. When a friend uses it, we record which account
+  invited which, and whether the friend's free month and first payment happened, so we can give you your free
+  month. Your invite list shows numbers only, never a friend's name or email.</p>
+  <p>We use this data only to give free months and rewards and to stop abuse. It is never used for ads or
+  tracking, and we never sell it.</p>
+      </section>
+      <section class="detail">
+<h2>2b. Subscriptions</h2>
+  <p>You buy Pro or Expert through Apple or Google; we never see your card. <strong>RevenueCat</strong> manages
+  subscription status for us. When you are signed in, RevenueCat and our server receive your purchase events
+  (product, price, store, dates and transaction IDs) with your account ID. We use them to unlock your plan on
+  all your devices, to apply free months and invite rewards, and to handle refunds.</p>
+      </section>
+      <section class="detail">
 <h2>3. Camera and photo library</h2>
   <p>With your permission, the app uses the camera and photo library so you can attach a photo to a flip or
   scan an item/receipt/barcode. Photos stay on your device unless you use an AI feature above. Marge does
-  not use your location; a location permission string appears only because a bundled file-picker component
-  references it, and the app never requests or reads your location.</p>
+  not use your phone's location; a location permission string appears only because a bundled file-picker component
+  references it, and the app never requests or reads your location. (Google Analytics estimates a rough region
+  from the network address; see section 5.)</p>
       </section>
       <section class="detail">
 <h2>4. What we do NOT collect</h2>
   <ul>
     <li>No name or profile beyond the email/identifier used to sign in (and only if you choose to).</li>
     <li>No advertising identifiers, no ad networks, no cross-app tracking.</li>
-    <li>No analytics SDK that profiles you. (If we add anonymous, aggregate crash/usage reporting in future,
-      we will update this policy first.)</li>
+    <li>No profiling. Usage counts and crash reports (section 5) use app IDs, never your account or email.</li>
     <li>We never sell or rent your data.</li>
   </ul>
       </section>
@@ -138,10 +173,23 @@
       API inputs are not used to train their models.</li>
     <li><strong>UPCitemdb</strong>: receives a scanned barcode to return product info.</li>
     <li><strong>Supabase</strong>: hosts the server functions that broker the requests above and, if you sign
-      in, stores your account and synced flips/sales.
+      in, stores your account and synced flips/sales. It also stores the code, invite and purchase records in
+      sections 2a and 2b, and our own usage counter: a random install ID and step names such as "onboarding
+      finished", never an item, an amount or your email.
       <a href="https://supabase.com/privacy" rel="noopener">Supabase Privacy Policy</a>.</li>
     <li><strong>Apple / Google</strong>: only if you choose “Sign in with Apple” or Google, they authenticate
-      you and return an email or identifier.</li>
+      you and return an email or identifier. When you use a code or an invite, Apple (App Attest, DeviceCheck)
+      or Google (Play Integrity) confirms that the app and the phone are genuine (section 2a).</li>
+    <li><strong>RevenueCat</strong>: manages subscriptions and receives your purchase events and, if you are
+      signed in, your account ID.
+      <a href="https://www.revenuecat.com/privacy" rel="noopener">RevenueCat Privacy Policy</a>.</li>
+    <li><strong>Google Analytics for Firebase</strong>: counts app usage, such as screens opened and "item added"
+      or "sale logged" with a category, quantity and amount, never an item name. It uses app IDs, not your
+      account, and estimates a rough region from the network address.
+      <a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a>.</li>
+    <li><strong>Sentry</strong>: receives crash and error reports (the error, device model and system version) so
+      we can fix bugs. No account ID is attached.
+      <a href="https://sentry.io/privacy/" rel="noopener">Sentry Privacy Policy</a>.</li>
   </ul>
       </section>
       <section class="detail">
@@ -149,6 +197,9 @@
   <p>Your inventory: kept on your device until you delete it or uninstall the app. If you sign in, your synced
   flips/sales are kept on our server until you delete them or delete your account. AI/lookup content: not
   stored by us after the request completes. Rate-limit counters: a per-IP, per-day count that resets daily.</p>
+  <p>Code and invite records (the peppered hashes of your phone ID, email and IP address, invite records and the
+  request log) and purchase records stay after you delete your account. Their job is to stop the same person or
+  phone from taking a second free month and to handle refunds. They hold no plain email and no inventory.</p>
       </section>
       <section class="detail">
 <h2>7. Your rights</h2>
