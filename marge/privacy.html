@@ -44,7 +44,7 @@
     <div class="card" style="width:min(100%, 720px); text-align:left">
       <p class="eyebrow" style="text-align:center">Marge</p>
       <h1 style="text-align:center; font-size:clamp(1.8rem, 6vw, 2.4rem)">Privacy Policy</h1>
-      <p class="sub" style="text-align:center">Last updated 17 October 2026. Questions: <a href="mailto:hello@apogeelabs.org">hello@apogeelabs.org</a>.</p>
+      <p class="sub" style="text-align:center">Last updated 8 November 2026. Questions: <a href="mailto:hello@apogeelabs.org">hello@apogeelabs.org</a>.</p>
       <section class="detail" style="border-top:none">
 <div class="wrap">
   
@@ -79,13 +79,14 @@
   </ul>
   <p>You can <strong>delete your account</strong> at any time from Settings → Account → Delete account. This
   permanently removes your account and the data it synced to our server, and the app wipes its copy on this
-  device. Copies on your other devices stay there until you delete them or the app. A few code, invite and
-  purchase records stay (section 6).</p>
+  device. Copies on your other devices stay there until you delete them or the app. A few code, invite,
+  purchase and AI allowance records stay (section 6).</p>
       </section>
       <section class="detail">
 <h2>2. Data processed when you use AI / lookup features</h2>
   <p>A few <strong>optional</strong> features send a limited amount of data to our servers, which forward it
-  to the third-party providers below to do the work, and return the result. We do not store this content.</p>
+  to the third-party providers below to do the work, and return the result. We do not store this content.
+  Your voice is never part of it: speech is turned into text on your phone (see “Say it” below the table).</p>
   <table style="width:100%;border-collapse:collapse;font-size:.9em;margin:12px 0">
     <tr><th style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">Feature</th><th style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--line,#8884)">What is sent</th><th style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--line,#8884)">Sent to</th><th style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--line,#8884)">Why</th></tr>
     <tr>
@@ -93,6 +94,18 @@
       <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">The photo(s) you choose of the item and/or receipt</td>
       <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">Our server → Google Gemini</td>
       <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">To read the item name, price, date and other details to pre-fill the form</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">“Say it” (voice log)</td>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">The text of what you said, or the text you typed instead, up to 500 characters. Never the audio.</td>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">Our server → Google Gemini</td>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">To fill in a buy or a sale for you to check</td>
+    </tr>
+    <tr>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">From a screenshot (sale)</td>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">The screenshot of a sale that you choose, one per scan. It can show a buyer’s name or address.</td>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">Our server → Google Gemini</td>
+      <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">To read the item, price, date and marketplace and fill in a sale for you to check</td>
     </tr>
     <tr>
       <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">Smart-map an import</td>
@@ -125,10 +138,21 @@
       <td style="text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--hair,#8884)">To write a title and description you can paste</td>
     </tr>
   </table>
+  <p><strong>Say it.</strong> When you hold the microphone button, your phone turns your speech into text
+  itself, using the speech recognizer built into iOS or Android. The audio is not recorded, not saved and not
+  sent to us or to anyone else. Only the text goes to our server and then to Google Gemini, which fills in a buy
+  or a sale for you to check before saving. We do not store the text. If your phone has no on-device recognizer
+  for your language (for example Android before version 12), the app tells you and you can type the line
+  instead.</p>
+  <p><strong>From a screenshot.</strong> The screenshot you pick goes to our server and then to Google Gemini,
+  which reads the item, price, date and marketplace. A sale screenshot can show a buyer’s name or address. Marge
+  tells the model not to return any name, address, phone number or email, and the draft you check contains only
+  item, price, quantity, marketplace and date. We do not store the screenshot. Only choose screenshots you are
+  comfortable sharing for processing.</p>
   <p>These features need an account. To keep costs in check, our server counts how often each account uses each
   feature per day. We do not build a profile from it.</p>
-  <p>Photos and receipts can contain personal information. Only send images you are comfortable sharing for
-  processing. These features are optional; the app is fully usable without them.</p>
+  <p>Photos, receipts and screenshots can contain personal information. Only send images you are comfortable
+  sharing for processing. These features are optional; the app is fully usable without them.</p>
       </section>
       <section class="detail">
 <h2>2a. Promo codes and invites</h2>
@@ -154,8 +178,9 @@
   <p>Each code and invite request is logged with your account, the hashed phone ID, a peppered hash of the
   network IP address, the code and the result.</p>
   <p>Our server also keeps a peppered hash of your <strong>email address</strong> (+tags removed, and dots in
-  Gmail addresses), so one mailbox cannot take a second free month with a new account. It keeps it when you
-  take any free month or free trial, open Invite friends, or delete an account that paid.</p>
+  Gmail addresses), so one mailbox cannot take a second free month, or refill the included AI allowance
+  (section 2c), with a new account. It keeps it when you take any free month or trial, open Invite friends,
+  use the included AI allowance, or delete an account that paid.</p>
   <p><strong>Invites.</strong> Your account gets a referral code and a link (apogeelabs.org/marge/r/ and your
   code). You share it yourself; Marge never reads your contacts. When a friend uses it, we record which account
   invited which, and whether the friend's free month and first payment happened, so we can give you your free
@@ -172,12 +197,35 @@
   refunds.</p>
       </section>
       <section class="detail">
-<h2>3. Camera and photo library</h2>
+<h2>2c. The included AI allowance</h2>
+  <p>A signed-in account on no paid plan gets a small, one-time number of tries of each AI feature, so you can
+  see what Pro does. To apply it, and to stop it being refilled by deleting an account and signing up again,
+  our server keeps, for each account and feature:</p>
+  <ul>
+    <li>a <strong>count of the tries used</strong>, and</li>
+    <li>a <strong>peppered hash of your email address</strong> (+tags removed, and dots in Gmail addresses): a
+      one-way code made with a secret key, which cannot be turned back into your email.</li>
+  </ul>
+  <p>Our server also keeps a per-account usage counter for every AI call (the feature, the number of units
+  and the date) to apply its daily and monthly limits. None of these records holds what you scanned, said or
+  typed, and they are not used for ads or tracking.</p>
+  <p>These records <strong>stay after you delete your account</strong>, with that account’s old random ID, so
+  that a new account on the same mailbox shares what is left instead of starting again.</p>
+      </section>
+      <section class="detail">
+<h2>3. Camera, photo library, microphone and speech recognition</h2>
   <p>With your permission, the app uses the camera and photo library so you can attach a photo to a flip or
-  scan an item/receipt/barcode. Photos stay on your device unless you use an AI feature above. Marge does
-  not use your phone's location; a location permission string appears only because a bundled file-picker component
+  scan an item/receipt/barcode. Photos stay on your device unless you use an AI feature above.</p>
+  <p>The microphone is used only while you hold the microphone button in “Say it”. On iPhone the app also asks
+  for speech recognition, which runs on the phone (if your language has no on-device model, the app does not
+  use it). On Android, speech recognition is done by the on-device recognizer of Android 12 or later. The audio
+  is never recorded, stored or sent; only the resulting text is, and only as described in section 2.</p>
+  <p>Marge does not use your phone's location; a location permission string appears only because a bundled file-picker component
   references it, and the app never requests or reads your location. (Google Analytics estimates a rough region
   from the network address; see section 5.)</p>
+  <p><strong>Deals and alerts.</strong> On the Expert plan, the app asks our server, also in the background, for
+  public deals and news in the categories of your items. The request carries category names only, never item
+  names, and no account. Matching the deals to your stock and showing the alerts happen on your phone.</p>
       </section>
       <section class="detail">
 <h2>4. What we do NOT collect</h2>
@@ -191,7 +239,7 @@
       <section class="detail">
 <h2>5. Third-party processors</h2>
   <ul>
-    <li><strong>Google Gemini</strong>: processes the photos, headers and item details you send with the AI features in section 2.
+    <li><strong>Google Gemini</strong>: processes the photos, screenshots, text, headers and item details you send with the AI features in section 2.
       <a href="https://policies.google.com/privacy" rel="noopener">Google Gemini Privacy Policy</a>.
       API inputs are not used to train their models.</li>
     <li><strong>UPCitemdb</strong>: receives a scanned barcode to return product info.</li>
@@ -199,7 +247,7 @@
       Openverse): receive a search phrase, never your photo, to find a product photo.</li>
     <li><strong>Supabase</strong>: hosts the server functions that broker the requests above and, if you sign
       in, stores your account and synced data. It also stores the code, invite and purchase records in
-      sections 2a and 2b, and our own usage counter: a random install ID and step names such as "onboarding
+      sections 2a and 2b, the included-allowance and usage records in section 2c, and our own usage counter: a random install ID and step names such as "onboarding
       finished", never an item, an amount or your email.
       <a href="https://supabase.com/privacy" rel="noopener">Supabase Privacy Policy</a>.</li>
     <li><strong>Apple / Google</strong>: only if you choose “Sign in with Apple” or Google, they authenticate
@@ -208,21 +256,30 @@
     <li><strong>RevenueCat</strong>: manages subscriptions and receives your purchase events with a random ID
       or, once you sign in, your account ID.
       <a href="https://www.revenuecat.com/privacy" rel="noopener">RevenueCat Privacy Policy</a>.</li>
-    <li><strong>Google Analytics for Firebase</strong>: counts app usage, such as screens opened and "item added"
-      or "sale logged" with a category, quantity and amount, never an item name. It uses app IDs, not your
-      account, and estimates a rough region from the network address.
+    <li><strong>Google Analytics for Firebase</strong>: counts app usage, such as screens opened, "item added"
+      with a category and quantity, "sale logged" with a marketplace and quantity, "expense logged" with a
+      category, "mileage logged" with a distance, and which plan you subscribed to. It never receives an item
+      name or a money amount. It also collects the usual device details (device model, system version, app
+      version, language) under an ID made for this install, not your account, and estimates a rough region from
+      the network address. Marge turns off Android’s advertising ID and never asks for iPhone tracking
+      permission.
       <a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a>.</li>
-    <li><strong>Sentry</strong>: receives crash and error reports (the error, device model and system version) so
-      we can fix bugs. No account ID is attached.
+    <li><strong>Sentry</strong>: receives crash and error reports (the error, device model, system version and the
+      last few steps in the app before it) so we can fix bugs. No account ID is attached.
       <a href="https://sentry.io/privacy/" rel="noopener">Sentry Privacy Policy</a>.</li>
   </ul>
       </section>
       <section class="detail">
 <h2>6. Data retention</h2>
   <p>Your inventory: kept on your device until you delete it or uninstall the app. If you sign in, your synced
-  data is kept on our server until you delete it or delete your account. AI/lookup content: not stored by us
-  after the request completes. Usage limits: a count per account and feature per day (for codes, also per
-  hashed IP address).</p>
+  data is kept on our server until you delete it or delete your account. AI/lookup content, including the text
+  of what you said and the screenshots you send: not stored by us after the request completes. Your voice is
+  never recorded. Usage limits: a count per account and feature per day (for codes, also per hashed IP
+  address).</p>
+  <p>The included AI allowance (a count of tries used per account and feature, with a peppered hash of your
+  email address) and the per-account AI usage counters are kept after you delete your account, with that
+  account’s old random ID, so that deleting and signing up again does not refill the allowance (section 2c).
+  They hold no plain email and none of your content.</p>
   <p>Code and invite records (the peppered hashes of your phone ID, email and IP address, the App Attest key,
   invite records and the request log) and purchase records stay after you delete your account, with your old
   account's random ID. Their job is to stop the same person or
