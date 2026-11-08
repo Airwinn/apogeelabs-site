@@ -210,7 +210,8 @@
   and the date) to apply its daily and monthly limits. None of these records holds what you scanned, said or
   typed, and they are not used for ads or tracking.</p>
   <p>These records <strong>stay after you delete your account</strong>, with that account’s old random ID, so
-  that a new account on the same mailbox shares what is left instead of starting again.</p>
+  that a new account on the same mailbox shares what is left instead of starting again. Section 6 says how
+  long, and how to ask us to erase them.</p>
       </section>
       <section class="detail">
 <h2>3. Camera, photo library, microphone and speech recognition</h2>
@@ -232,7 +233,8 @@
   <ul>
     <li>No name or profile beyond the email/identifier used to sign in (and only if you choose to).</li>
     <li>No advertising identifiers, no ad networks, no cross-app tracking.</li>
-    <li>No profiling. Analytics and crash reports (section 5) use app IDs, never your account or email.</li>
+    <li>No ads and no profile of you. Analytics and crash reports (section 5) use app IDs, never your account
+      or email. They run by default and the app has no switch to turn them off.</li>
     <li>We never sell or rent your data.</li>
   </ul>
       </section>
@@ -245,7 +247,7 @@
     <li><strong>UPCitemdb</strong>: receives a scanned barcode to return product info.</li>
     <li><strong>Google Search, eBay and public catalogs</strong> (Apple iTunes, Open Library, Steam, Nintendo,
       Openverse): receive a search phrase, never your photo, to find a product photo.</li>
-    <li><strong>Supabase</strong>: hosts the server functions that broker the requests above and, if you sign
+    <li><strong>Supabase</strong> (servers in London, UK): hosts the server functions that broker the requests above and, if you sign
       in, stores your account and synced data. It also stores the code, invite and purchase records in
       sections 2a and 2b, the included-allowance and usage records in section 2c, and our own usage counter: a random install ID and step names such as "onboarding
       finished", never an item, an amount or your email.
@@ -262,12 +264,18 @@
       name or a money amount. It also collects the usual device details (device model, system version, app
       version, language) under an ID made for this install, not your account, and estimates a rough region from
       the network address. Marge turns off Android’s advertising ID and never asks for iPhone tracking
-      permission.
+      permission. It starts with the app and the app has no switch for it.
       <a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a>.</li>
     <li><strong>Sentry</strong>: receives crash and error reports (the error, device model, system version and the
-      last few steps in the app before it) so we can fix bugs. No account ID is attached.
+      last few steps in the app before it) so we can fix bugs. No account ID is attached. It starts with the app
+      and the app has no switch for it.
       <a href="https://sentry.io/privacy/" rel="noopener">Sentry Privacy Policy</a>.</li>
   </ul>
+  <p><strong>Outside the EEA.</strong> Our server database is in London, UK, which the European Commission
+  recognises as giving adequate protection. Google, Apple, RevenueCat, Sentry and UPCitemdb are mostly based in
+  the United States and may process data there. Each does so under its own terms, which rely on the EU-US Data
+  Privacy Framework, the European Commission’s standard contractual clauses, or both. Ask us at
+  hello@apogeelabs.org if you want to know which applies to a provider.</p>
       </section>
       <section class="detail">
 <h2>6. Data retention</h2>
@@ -276,21 +284,42 @@
   of what you said and the screenshots you send: not stored by us after the request completes. Your voice is
   never recorded. Usage limits: a count per account and feature per day (for codes, also per hashed IP
   address).</p>
-  <p>The included AI allowance (a count of tries used per account and feature, with a peppered hash of your
-  email address) and the per-account AI usage counters are kept after you delete your account, with that
-  account’s old random ID, so that deleting and signing up again does not refill the allowance (section 2c).
-  They hold no plain email and none of your content.</p>
-  <p>Code and invite records (the peppered hashes of your phone ID, email and IP address, the App Attest key,
-  invite records and the request log) and purchase records stay after you delete your account, with your old
-  account's random ID. Their job is to stop the same person or
-  phone from taking a second free month and to handle refunds. They hold no plain email and no inventory.</p>
+  <p>Some records stay after you delete your account, with that account’s old random ID: the included AI
+  allowance (a count of tries used per account and feature, with a peppered hash of your email address), the
+  per-account AI usage counters, the code and invite records (the peppered hashes of your phone ID, email and IP
+  address, the App Attest key, invite records and the request log), and purchase records (the events
+  RevenueCat sends our server). Their job is to stop the same person or phone from taking a second free month
+  or refilling the AI allowance, and to handle refunds.</p>
+  <p><strong>How long.</strong> We have not set a fixed end date for these records. We keep them for as long
+  as that job needs them. They hold no plain email, no inventory and none of your content, but they are not
+  anonymous: they are tied to your old account ID and to a hash of your email, so we can link them to a new
+  account on the same mailbox. They stay personal data.</p>
+  <p><strong>Erasure.</strong> You can ask us to erase them by writing to
+  <a href="mailto:hello@apogeelabs.org">hello@apogeelabs.org</a>. We will, unless a legal duty, or an abuse case
+  that is still open, means we must keep them. If so, we tell you which.</p>
       </section>
       <section class="detail">
 <h2>7. Your rights</h2>
   <p>You control your data directly: edit or delete any flip or sale in the app, export to CSV at any time, and
   remove local data by deleting the app. If you created an account, you can delete it and its server-side data
-  from Settings → Account → Delete account. If you are in the EEA/UK, you have rights under the GDPR; for any
-  access or deletion request you can also contact us below.</p>
+  from Settings → Account → Delete account.</p>
+  <p>If you are in the EEA or the UK, the GDPR gives you these rights over the data we hold about you,
+  including the kept records in section 6: access to it, correction, erasure, restriction, a portable copy,
+  and objection to processing we do for our own legitimate interest. Where we rely on your consent, you can
+  withdraw it at any time by declining the AI notice or not using that feature; this does not undo earlier use.
+  Write to <a href="mailto:hello@apogeelabs.org">hello@apogeelabs.org</a>. We reply within one month. You may also
+  complain to the CNIL (cnil.fr) if you are in France, or to the data protection authority where you live or
+  work.</p>
+  <p>Why we process data:</p>
+  <ul>
+    <li><strong>Contract</strong>: your account, sync, your plan, and the AI features you ask for.</li>
+    <li><strong>Consent</strong>: sending a photo, screenshot or text to the AI, which you accept in the notice
+      the app shows first.</li>
+    <li><strong>Legitimate interest</strong>: stopping abuse and fraud (hashed email, phone ID and IP address,
+      the kept records in section 6), keeping AI costs in check (usage limits), and keeping the app working
+      (analytics and crash reports). If you object to analytics or crash reports, write to us; today the app has
+      no switch, so the only way to stop them is to stop using the app.</li>
+  </ul>
       </section>
       <section class="detail">
 <h2>8. Children</h2>
@@ -309,7 +338,8 @@
       </section>
       <section class="detail">
 <h2>11. Contact</h2>
-  <p>Questions or requests: <a href="mailto:hello@apogeelabs.org">hello@apogeelabs.org</a>.</p>
+  <p>Apogee Labs, the studio that publishes Marge, decides how the data in this policy is used. Questions or
+  requests: <a href="mailto:hello@apogeelabs.org">hello@apogeelabs.org</a>.</p>
       </section>
 
       <p class="fine" style="text-align:center">Apogee Labs: <a href="mailto:hello@apogeelabs.org">hello@apogeelabs.org</a></p>
