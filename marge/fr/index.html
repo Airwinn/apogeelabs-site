@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marge : ton vrai bénéfice sur chaque vente</title>
+<meta name="description" content="Marge calcule ce qu’une vente t’a vraiment rapporté, une fois déduits ce que tu as payé, l’emballage, l’envoi et les boosts. Vinted, Leboncoin, eBay. iOS et Android.">
+<meta name="theme-color" content="#14141a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://apogeelabs.org/marge/fr/">
+<link rel="alternate" hreflang="fr" href="https://apogeelabs.org/marge/fr/">
+<link rel="alternate" hreflang="en" href="https://apogeelabs.org/marge/">
+<link rel="alternate" hreflang="x-default" href="https://apogeelabs.org/marge/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Apogee Labs">
+<meta property="og:url" content="https://apogeelabs.org/marge/fr/">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Marge : ton vrai bénéfice sur chaque vente">
+<meta property="og:description" content="Dis ta dernière vente, vois ce qu’il te reste vraiment. Vinted, Leboncoin, eBay.">
+<meta property="og:image" content="https://apogeelabs.org/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://apogeelabs.org/assets/og-image.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="../../assets/img/apps/marge-touch-180.png">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<nav class="nav" aria-label="Navigation principale">
+  <div class="nav__in">
+    <a class="brand" href="../../">
+      <svg class="mark" viewBox="3 16 96 68" aria-hidden="true" focusable="false">
+        <path class="orbit-arc" d="M75.23 63.47A40 26 -20 1 1 60.15 22.03" fill="none" stroke-width="11" stroke-linecap="round"/>
+        <circle class="apogee" cx="85.36" cy="36.32" r="13"/>
+      </svg>
+      <span>Apogee Labs</span>
+    </a>
+    <a href="../../#notch">Notch</a>
+    <a href="../../#kept">Kept</a>
+  </div>
+</nav>
+
+<main class="band page" id="main" style="--accent:var(--c-marge)">
+  <div class="inner">
+    <div class="card">
+      <img class="card__icon" src="../../assets/img/apps/marge-touch-180.png" alt="" width="88" height="88" fetchpriority="high">
+      <i class="rule" aria-hidden="true"></i>
+      <p class="eyebrow">Marge</p>
+      <h1>Ton vrai bénéfice sur chaque vente.</h1>
+
+      <div class="stack">
+        <a class="btn btn--block" id="primary" href="https://apps.apple.com/app/id6776045609">Essaie-le maintenant sur l’App Store</a>
+        <a class="btn btn--ghost btn--block" id="secondary" href="https://play.google.com/store/apps/details?id=com.flipfolio.flipfolio">Essaie-le maintenant sur Google Play</a>
+      </div>
+      <p class="price">Version Pro disponible dans l’app</p>
+
+      <p class="sub">Tu as vendu un jean 18 € sur Vinted ? Dis-le à voix haute : Marge retire ce que tu as payé pour l’article, l’emballage, l’envoi que tu as pris en charge et les boosts, puis te montre ce qu’il te reste vraiment.</p>
+
+      <section class="detail" id="detail">
+        <h2>Ce que fait Marge</h2>
+        <ul>
+          <li>Dis ta vente à voix haute : Marge note l’article, le prix et la plateforme.</li>
+          <li>Importe tes ventes depuis une capture d’écran ou un fichier.</li>
+          <li>Sur Vinted, le vendeur ne paie pas de commission : ton bénéfice, c’est le prix de vente moins ce que tu as payé et tes frais (emballage, envoi, boosts).</li>
+          <li>Bénéfice par article, par plateforme et par mois.</li>
+          <li>Fonctionne sans réseau.</li>
+          <li>Vinted, Leboncoin, eBay et d’autres plateformes.</li>
+        </ul>
+      </section>
+
+      <section class="detail" id="support">
+        <h2>Aide</h2>
+        <p>Écris-nous à <a href="mailto:hello@apogeelabs.org">hello@apogeelabs.org</a>. Réponse sous deux jours.</p>
+      </section>
+
+      <p class="fine">
+        Version Pro disponible dans l’app &middot;
+        <a href="../privacy.html" hreflang="en">Confidentialité (en anglais)</a> &middot;
+        <a href="../terms.html" hreflang="en">Conditions (en anglais)</a> &middot;
+        <a href="../" hreflang="en">English</a>
+      </p>
+      <p class="fine"><a class="back" href="../../">&larr; Apogee Labs</a></p>
+    </div>
+  </div>
+</main>
+
+<script>
+(function () {
+  var IOS  = "https://apps.apple.com/app/id6776045609";
+  var PLAY = "https://play.google.com/store/apps/details?id=com.flipfolio.flipfolio";
+
+  // One campaign token per channel: ?ct=tiktok, or the utm_source, else
+  // "landing-fr". It rides on both store links so the stores can say which
+  // post a download came from. App Store Connect also needs the provider
+  // token (pt=) on the Apple link before it reports; add it to IOS when the
+  // owner has it.
+  var params = new URLSearchParams(location.search);
+  var raw = params.get("ct") || params.get("utm_source") || "landing-fr";
+  var ct = raw.toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 40) || "landing-fr";
+  IOS += "?ct=" + ct;
+  PLAY += "&referrer=" + encodeURIComponent("utm_source=" + ct + "&utm_medium=landing-fr");
+
+  var ua = navigator.userAgent || "";
+  var isAndroid = /Android/.test(ua);
+
+  var primary = document.getElementById("primary");
+  var secondary = document.getElementById("secondary");
+
+  function set(el, href, label) { el.href = href; el.textContent = label; }
+
+  var LABEL_IOS = "Essaie-le maintenant sur l’App Store";
+  var LABEL_PLAY = "Essaie-le maintenant sur Google Play";
+  if (isAndroid) {
+    set(primary, PLAY, LABEL_PLAY);
+    set(secondary, IOS, LABEL_IOS);
+  } else {
+    set(primary, IOS, LABEL_IOS);
+    set(secondary, PLAY, LABEL_PLAY);
+  }
+})();
+</script>
+<script src="../../assets/js/site.js" defer></script>
+</body>
+</html>
