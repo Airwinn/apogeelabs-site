@@ -51,45 +51,144 @@
       <p class="sub" id="tag">Someone you live with asked you to join. Open Notch and use the code below.</p>
 
       <div class="invite" id="invite" hidden>
-        <p class="invite__lab">Your place's join code</p>
+        <p class="invite__lab" id="invite-lab">Your place's join code</p>
         <p class="invite__code" id="invite-code"></p>
         <p class="invite__hint" id="invite-hint">Tap below to open Notch, or install it first. The code still works after.</p>
       </div>
 
       <div class="stack">
         <a class="btn btn--block" id="open" href="#" hidden>Open Notch &rarr; Join with code</a>
-        <a class="btn btn--block" id="primary" href="https://apps.apple.com/app/id6773518599">Download on the App Store</a>
-        <a class="btn btn--ghost btn--block" id="secondary" href="https://play.google.com/store/apps/details?id=com.notch.app">Get it on Google Play</a>
+        <a class="btn btn--block" id="primary" href="#">Download on the App Store</a>
+        <a class="btn btn--ghost btn--block" id="secondary" href="#">Get it on Google Play</a>
+        <p class="invite__hint" id="copied" role="status" hidden></p>
       </div>
 
       <section class="detail" id="detail">
-        <h2>What you're joining</h2>
+        <h2 id="what">What you're joining</h2>
         <ul>
           <li>Chores worth points, claimed by whoever does them.</li>
           <li>A weekly season, and a board that keeps the score.</li>
           <li>Shared bills split, with a running tally of who owes who.</li>
-          <li>One plan covers everyone you live with. No per-person charge.</li>
+          <li>One plan covers the whole household. No per-person charge.</li>
         </ul>
       </section>
 
       <p class="fine">
-        Try it now on the App Store and Google Play &middot;
-        <a href="../privacy.html">Privacy</a>
+        <span id="cta">Try it now on the App Store and Google Play</span> &middot;
+        <a id="priv" href="../privacy.html">Privacy</a>
       </p>
-      <p class="fine"><a class="back" href="../">&larr; About Notch</a></p>
+      <p class="fine"><a class="back" id="back" href="../">&larr; About Notch</a></p>
     </div>
   </div>
 </main>
 
 <script>
 (function () {
-  var IOS  = "https://apps.apple.com/app/id6773518599";
-  var PLAY = "https://play.google.com/store/apps/details?id=com.notch.app";
+  // Owner: swap PT_PLACEHOLDER for the App Store Connect provider token once.
+  var PT = "PT_PLACEHOLDER";
+  var IOS  = "https://apps.apple.com/app/id6773518599?pt=" + PT + "&ct=invite&mt=8";
+  var PLAY = "https://play.google.com/store/apps/details?id=com.notch.app&referrer=utm_source%3Dinvite%26utm_medium%3Djoin%26utm_campaign%3Dnotch-1-2-4";
+  var JOIN_URL = "https://apogeelabs.org/notch/join?code=";
+
+  // {p} = place word by region. Copy avoids price words on purpose (marketing rule).
+  var S = {
+    en: {
+      title: "Join your {p} on Notch", kicker: "You're invited", kickerNo: "Notch",
+      tag: "Someone you live with asked you to join. Open Notch and use the code below.",
+      tagNo: "Ask the person who invited you for the six-character join code, then enter it in the app.",
+      lab: "Your {p}'s join code", hint: "Tap below to open Notch, or install it first. The code still works after.",
+      open: "Open Notch → Join with code", ios: "Download on the App Store", play: "Get it on Google Play",
+      copied: "Invite copied. Open Notch after installing.", skip: "Skip to content",
+      what: "What you're joining",
+      b: ["Chores worth points, claimed by whoever does them.", "A weekly season, and a board that keeps the score.",
+          "Shared bills split, with a running tally of who owes who.", "One plan covers the whole household. No per-person charge."],
+      cta: "Try it now on the App Store and Google Play", priv: "Privacy", back: "← About Notch"
+    },
+    fr: {
+      title: "Rejoins ton {p} sur Notch", kicker: "Tu es invité(e)", kickerNo: "Notch",
+      tag: "Quelqu'un avec qui tu vis t'invite à le rejoindre. Ouvre Notch et utilise le code ci-dessous.",
+      tagNo: "Demande à la personne qui t'a invité(e) le code à six caractères, puis saisis-le dans l'app.",
+      lab: "Le code de ton {p}", hint: "Touche ci-dessous pour ouvrir Notch, ou installe-le d'abord. Le code fonctionnera toujours après.",
+      open: "Ouvrir Notch → Rejoindre avec le code", ios: "Télécharger sur l'App Store", play: "Disponible sur Google Play",
+      copied: "Invitation copiée. Ouvre Notch après l'installation.", skip: "Aller au contenu",
+      what: "Ce que tu rejoins",
+      b: ["Des tâches qui rapportent des points, pour celui ou celle qui les fait.", "Une saison par semaine et un classement qui compte les points.",
+          "Les dépenses partagées, avec le détail de qui doit quoi à qui.", "Un seul abonnement couvre tout le foyer. Aucun supplément par personne."],
+      cta: "Essaie-le maintenant sur l'App Store et Google Play", priv: "Confidentialité", back: "← À propos de Notch",
+      p: "logement"
+    },
+    de: {
+      title: "Tritt deiner {p} bei Notch bei", kicker: "Du bist eingeladen", kickerNo: "Notch",
+      tag: "Jemand, mit dem du zusammenwohnst, lädt dich ein. Öffne Notch und nutze den Code unten.",
+      tagNo: "Frag die Person, die dich eingeladen hat, nach dem sechsstelligen Beitrittscode und gib ihn in der App ein.",
+      lab: "Beitrittscode deiner {p}", hint: "Tippe unten, um Notch zu öffnen, oder installiere es zuerst. Der Code gilt danach weiter.",
+      open: "Notch öffnen → Mit Code beitreten", ios: "Laden im App Store", play: "Jetzt bei Google Play",
+      copied: "Einladung kopiert. Öffne Notch nach der Installation.", skip: "Zum Inhalt springen",
+      what: "Wobei du mitmachst",
+      b: ["Aufgaben, die Punkte bringen, für alle, die sie erledigen.", "Eine Wochenwertung und ein Board, das den Stand hält.",
+          "Geteilte Rechnungen, mit laufender Übersicht, wer wem was schuldet.", "Ein Tarif deckt den ganzen Haushalt ab. Keine Gebühr pro Person."],
+      cta: "Jetzt im App Store und bei Google Play ausprobieren", priv: "Datenschutz", back: "← Über Notch",
+      p: "WG"
+    },
+    es: {
+      title: "Únete a tu {p} en Notch", kicker: "Te han invitado", kickerNo: "Notch",
+      tag: "Alguien con quien vives te ha invitado. Abre Notch y usa el código de abajo.",
+      tagNo: "Pide a quien te invitó el código de seis caracteres y escríbelo en la app.",
+      lab: "Código de tu {p}", hint: "Toca abajo para abrir Notch, o instálalo primero. El código seguirá valiendo.",
+      open: "Abrir Notch → Unirme con el código", ios: "Descargar en el App Store", play: "Disponible en Google Play",
+      copied: "Invitación copiada. Abre Notch después de instalar.", skip: "Saltar al contenido",
+      what: "A qué te unes",
+      b: ["Tareas que dan puntos a quien las hace.", "Una temporada semanal y un marcador que lleva la cuenta.",
+          "Gastos compartidos divididos, con el saldo de quién debe a quién.", "Un solo plan cubre a todo el hogar. Sin cargo por persona."],
+      cta: "Pruébalo ahora en el App Store y Google Play", priv: "Privacidad", back: "← Sobre Notch",
+      p: "piso"
+    },
+    pt: {
+      title: "Entra na tua {p} no Notch", kicker: "Foste convidado(a)", kickerNo: "Notch",
+      tag: "Alguém com quem vives convidou-te. Abre o Notch e usa o código abaixo.",
+      tagNo: "Pede a quem te convidou o código de seis caracteres e escreve-o na app.",
+      lab: "Código da tua {p}", hint: "Toca abaixo para abrir o Notch, ou instala-o primeiro. O código continua a funcionar depois.",
+      open: "Abrir o Notch → Entrar com o código", ios: "Transferir na App Store", play: "Obtém no Google Play",
+      copied: "Convite copiado. Abre o Notch depois de instalar.", skip: "Saltar para o conteúdo",
+      what: "No que vais entrar",
+      b: ["Tarefas que dão pontos a quem as faz.", "Uma temporada semanal e um quadro que guarda a pontuação.",
+          "Despesas partilhadas divididas, com o saldo de quem deve a quem.", "Um só plano cobre toda a casa. Sem custo por pessoa."],
+      cta: "Experimenta agora na App Store e no Google Play", priv: "Privacidade", back: "← Sobre o Notch",
+      p: "casa"
+    }
+  };
+
+  var q = new URLSearchParams(location.search);
+  // ?lang= is a dev/testing override; real visitors get navigator.language.
+  var nav = (q.get("lang") || navigator.language || "en").toLowerCase();
+  var base = nav.slice(0, 2);
+  var L = S[base] || S.en;
+  var place = L.p;
+  if (!place) {
+    place = /^en-(gb|ie|nz)/.test(nav) ? "flat" : /^en-au/.test(nav) ? "share house" : "apartment";
+  }
+  function t(k) { return String(L[k]).replace(/\{p\}/g, place); }
+  function txt(id, k) { document.getElementById(id).textContent = t(k); }
+
+  document.documentElement.lang = S[base] ? base : "en";
+  document.title = t("title");
+  txt("heading", "title");
+  txt("kicker", "kicker");
+  txt("tag", "tag");
+  txt("invite-lab", "lab");
+  txt("invite-hint", "hint");
+  txt("open", "open");
+  txt("what", "what");
+  txt("cta", "cta");
+  txt("priv", "priv");
+  txt("back", "back");
+  document.querySelector(".skip-link").textContent = t("skip");
+  var lis = document.querySelectorAll("#detail li");
+  for (var i = 0; i < lis.length; i++) lis[i].textContent = L.b[i];
 
   var ua = navigator.userAgent || "";
   var isAndroid = /Android/.test(ua);
 
-  var q = new URLSearchParams(location.search);
   // ?code= is the current link; ?join= is what /notch/ has always accepted, so
   // an older shared link keeps working here too.
   var code = q.get("code") || q.get("join") || "";
@@ -98,8 +197,9 @@
   // fold the two characters people mis-read. Never rewrite the URL from this —
   // it is only what we display and hand to the app.
   code = code.toUpperCase().replace(/[^A-Z0-9]/g, "").replace(/O/g, "0").replace(/I/g, "1").slice(0, 8);
+  var valid = /^[A-Z0-9]{4,8}$/.test(code);
 
-  if (/^[A-Z0-9]{4,8}$/.test(code)) {
+  if (valid) {
     document.getElementById("invite-code").textContent = code;
     document.getElementById("invite").hidden = false;
 
@@ -111,22 +211,59 @@
     try { localStorage.setItem("notch.invite", code); } catch (e) {}
   } else {
     // No usable code — don't pretend there's an invite to accept.
-    document.getElementById("kicker").textContent = "Notch";
-    document.getElementById("heading").textContent = "Join your place on Notch.";
-    document.getElementById("tag").textContent =
-      "Ask the person who invited you for the six-character join code, then enter it in the app.";
+    txt("kicker", "kickerNo");
+    txt("tag", "tagNo");
   }
 
   function set(el, href, label) { el.href = href; el.textContent = label; }
   var primary = document.getElementById("primary");
   var secondary = document.getElementById("secondary");
   if (isAndroid) {
-    set(primary, PLAY, "Get it on Google Play");
-    set(secondary, IOS, "Download on the App Store");
+    set(primary, PLAY, t("play"));
+    set(secondary, IOS, t("ios"));
   } else {
-    set(primary, IOS, "Download on the App Store");
-    set(secondary, PLAY, "Get it on Google Play");
+    set(primary, IOS, t("ios"));
+    set(secondary, PLAY, t("play"));
   }
+
+  // Deferred hand-off: copy the invite link so the app can read it after install.
+  function copyInvite(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (res, rej) {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.cssText = "position:fixed;left:-9999px;top:0;opacity:0";
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      ok ? res() : rej();
+    });
+  }
+  function onStore(ev) {
+    if (!valid) return;
+    var href = ev.currentTarget.href;
+    ev.preventDefault();
+    var went = false;
+    function go() { if (went) return; went = true; location.href = href; }
+    // Never hold the visitor more than ~150 ms, and never if copying fails.
+    var timer = setTimeout(go, 150);
+    var hint = document.getElementById("copied");
+    var p;
+    try { p = copyInvite(JOIN_URL + code); } catch (e) { p = Promise.reject(e); }
+    p.then(function () {
+      hint.textContent = t("copied");
+      hint.hidden = false;
+      clearTimeout(timer);
+      go();
+    }, function () { clearTimeout(timer); go(); });
+  }
+  primary.addEventListener("click", onStore);
+  secondary.addEventListener("click", onStore);
 })();
 </script>
 <script src="../../assets/js/site.js" defer></script>
