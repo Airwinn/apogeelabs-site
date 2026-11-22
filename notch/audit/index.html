@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roommate chore chart generator: who really does the work? | Notch</title>
+<meta name="description" content="Roommate chore chart generator: enter names, count the chores, get a fair verdict, a shareable card and a printable weekly chart.">
+<meta name="theme-color" content="#14141a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://apogeelabs.org/notch/audit/">
+<link rel="alternate" hreflang="en" href="https://apogeelabs.org/notch/audit/">
+<link rel="alternate" hreflang="fr" href="https://apogeelabs.org/notch/audit/fr/">
+<link rel="alternate" hreflang="x-default" href="https://apogeelabs.org/notch/audit/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Apogee Labs">
+<meta property="og:url" content="https://apogeelabs.org/notch/audit/">
+<meta property="og:title" content="Roommate Chore Audit">
+<meta property="og:description" content="Who really does the chores? Run the audit, get the verdict.">
+<meta property="og:image" content="https://apogeelabs.org/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Roommate Chore Audit">
+<meta name="twitter:description" content="Who really does the chores? Run the audit, get the verdict.">
+<meta name="twitter:image" content="https://apogeelabs.org/assets/og-image.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="../../assets/img/apps/notch-touch-180.png">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/notch-audit.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Primary">
+  <div class="nav__in">
+    <a class="brand" href="../../">
+      <svg class="mark" viewBox="3 16 96 68" aria-hidden="true" focusable="false">
+        <path class="orbit-arc" d="M75.23 63.47A40 26 -20 1 1 60.15 22.03" fill="none" stroke-width="11" stroke-linecap="round"/>
+        <circle class="apogee" cx="85.36" cy="36.32" r="13"/>
+      </svg>
+      <span>Apogee Labs</span>
+    </a>
+    <a href="../../notch/">Notch</a>
+  </div>
+</nav>
+
+<main class="band page" id="main" style="--accent:var(--c-notch)">
+  <div class="inner">
+    <div class="audit">
+      <i class="rule" aria-hidden="true" style="margin-inline:auto"></i>
+      <p class="eyebrow">Notch</p>
+      <h1>Roommate chore audit.</h1>
+      <p class="sub" style="text-align:center;margin-inline:auto">Count the chores. Get the verdict.</p>
+
+      <h2 id="t-names"></h2>
+      <div id="names"></div>
+      <button class="btn btn--ghost" id="add" type="button"></button>
+
+      <h2 id="t-counts"></h2>
+      <div id="counts"></div>
+
+      <button class="btn" id="run" type="button"></button>
+
+      <section id="result" hidden aria-live="polite">
+        <h2 id="v-head"></h2>
+        <p class="sub" id="v-sub"></p>
+        <p id="v-score"></p>
+        <p id="v-top"></p>
+        <ul id="v-rank"></ul>
+        <canvas id="card" width="1080" height="1920" role="img"></canvas>
+        <div class="au-actions">
+          <button class="btn" id="save" type="button"></button>
+          <button class="btn btn--ghost" id="share" type="button" hidden></button>
+          <button class="btn btn--ghost" id="print" type="button"></button>
+        </div>
+      </section>
+
+      <div class="au-cta">
+        <p id="cta"></p>
+        <div class="au-stores">
+          <a class="btn" id="ios" href="#"></a>
+          <a class="btn btn--ghost" id="play" href="#"></a>
+        </div>
+      </div>
+      <p class="fine au-lang"><a href="fr/" hreflang="fr">Français</a></p>
+    </div>
+  </div>
+</main>
+
+<section id="sheet" aria-hidden="true">
+  <h1 id="sheet-title"></h1>
+  <table id="sheet-table"></table>
+  <div class="foot">
+    <img src="../../qr/notch-join.svg" alt="" width="120" height="120">
+    <div><p id="sheet-cta"></p><p id="sheet-scan"></p></div>
+  </div>
+</section>
+
+<script src="../../assets/js/notch-audit.js" data-base="../../" defer></script>
+</body>
+</html>
